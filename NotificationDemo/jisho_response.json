@@ -1,0 +1,488 @@
+{
+   "data" : [
+      {
+         "attribution" : {
+            "dbpedia" : "http://dbpedia.org/resource/Capital_(economics)",
+            "jmdict" : true,
+            "jmnedict" : false
+         },
+         "is_common" : true,
+         "japanese" : [
+            {
+               "reading" : "ãã»ã",
+               "word" : "è³æ¬"
+            }
+         ],
+         "jlpt" : [
+            "jlpt-n3"
+         ],
+         "senses" : [
+            {
+               "antonyms" : [],
+               "english_definitions" : [
+                  "funds",
+                  "capital"
+               ],
+               "info" : [],
+               "links" : [],
+               "parts_of_speech" : [
+                  "Noun"
+               ],
+               "restrictions" : [],
+               "see_also" : [],
+               "source" : [],
+               "tags" : []
+            },
+            {
+               "antonyms" : [],
+               "english_definitions" : [
+                  "Capital (economics)"
+               ],
+               "info" : [],
+               "links" : [
+                  {
+                     "text" : "Read âCapital (economics)â on English Wikipedia",
+                     "url" : "http://en.wikipedia.org/wiki/Capital_(economics)?oldid=489506522"
+                  },
+                  {
+                     "text" : "Read âè³æ¬â on Japanese Wikipedia",
+                     "url" : "http://ja.wikipedia.org/wiki/è³æ¬?oldid=41760511"
+                  }
+               ],
+               "parts_of_speech" : [
+                  "Wikipedia definition"
+               ],
+               "restrictions" : [],
+               "see_also" : [],
+               "sentences" : [],
+               "source" : [],
+               "tags" : []
+            }
+         ],
+         "slug" : "è³æ¬",
+         "tags" : [
+            "wanikani21"
+         ]
+      },
+      {
+         "attribution" : {
+            "dbpedia" : "http://dbpedia.org/resource/Common_stock",
+            "jmdict" : true,
+            "jmnedict" : false
+         },
+         "is_common" : true,
+         "japanese" : [
+            {
+               "reading" : "ãã»ããã",
+               "word" : "è³æ¬é"
+            }
+         ],
+         "jlpt" : [],
+         "senses" : [
+            {
+               "antonyms" : [],
+               "english_definitions" : [
+                  "capital stock"
+               ],
+               "info" : [],
+               "links" : [],
+               "parts_of_speech" : [
+                  "Noun"
+               ],
+               "restrictions" : [],
+               "see_also" : [],
+               "source" : [],
+               "tags" : []
+            },
+            {
+               "antonyms" : [],
+               "english_definitions" : [
+                  "Common stock"
+               ],
+               "info" : [],
+               "links" : [
+                  {
+                     "text" : "Read âCommon stockâ on English Wikipedia",
+                     "url" : "http://en.wikipedia.org/wiki/Common_stock?oldid=495253379"
+                  },
+                  {
+                     "text" : "Read âè³æ¬éâ on Japanese Wikipedia",
+                     "url" : "http://ja.wikipedia.org/wiki/è³æ¬é?oldid=42578116"
+                  }
+               ],
+               "parts_of_speech" : [
+                  "Wikipedia definition"
+               ],
+               "restrictions" : [],
+               "see_also" : [],
+               "sentences" : [],
+               "source" : [],
+               "tags" : []
+            }
+         ],
+         "slug" : "è³æ¬é",
+         "tags" : []
+      },
+      {
+         "attribution" : {
+            "dbpedia" : "http://dbpedia.org/resource/Capitalism",
+            "jmdict" : true,
+            "jmnedict" : false
+         },
+         "is_common" : true,
+         "japanese" : [
+            {
+               "reading" : "ãã»ãããã",
+               "word" : "è³æ¬ä¸»ç¾©"
+            }
+         ],
+         "jlpt" : [],
+         "senses" : [
+            {
+               "antonyms" : [],
+               "english_definitions" : [
+                  "capitalism"
+               ],
+               "info" : [],
+               "links" : [],
+               "parts_of_speech" : [
+                  "Noun",
+                  "No-adjective"
+               ],
+               "restrictions" : [],
+               "see_also" : [],
+               "source" : [],
+               "tags" : []
+            },
+            {
+               "antonyms" : [],
+               "english_definitions" : [
+                  "Capitalism"
+               ],
+               "info" : [],
+               "links" : [
+                  {
+                     "text" : "Read âCapitalismâ on English Wikipedia",
+                     "url" : "http://en.wikipedia.org/wiki/Capitalism?oldid=494875054"
+                  },
+                  {
+                     "text" : "Read âè³æ¬ä¸»ç¾©â on Japanese Wikipedia",
+                     "url" : "http://ja.wikipedia.org/wiki/è³æ¬ä¸»ç¾©?oldid=42286908"
+                  }
+               ],
+               "parts_of_speech" : [
+                  "Wikipedia definition"
+               ],
+               "restrictions" : [],
+               "see_also" : [],
+               "sentences" : [],
+               "source" : [],
+               "tags" : []
+            }
+         ],
+         "slug" : "è³æ¬ä¸»ç¾©",
+         "tags" : []
+      },
+      {
+         "attribution" : {
+            "dbpedia" : false,
+            "jmdict" : true,
+            "jmnedict" : false
+         },
+         "is_common" : true,
+         "japanese" : [
+            {
+               "reading" : "ãã»ãã",
+               "word" : "è³æ¬å®¶"
+            }
+         ],
+         "jlpt" : [],
+         "senses" : [
+            {
+               "antonyms" : [],
+               "english_definitions" : [
+                  "capitalist",
+                  "financier"
+               ],
+               "info" : [],
+               "links" : [],
+               "parts_of_speech" : [
+                  "Noun"
+               ],
+               "restrictions" : [],
+               "see_also" : [],
+               "source" : [],
+               "tags" : []
+            }
+         ],
+         "slug" : "è³æ¬å®¶",
+         "tags" : []
+      },
+      {
+         "attribution" : {
+            "dbpedia" : false,
+            "jmdict" : true,
+            "jmnedict" : false
+         },
+         "is_common" : false,
+         "japanese" : [
+            {
+               "reading" : "ãã»ãããããã",
+               "word" : "è³æ¬éç´"
+            }
+         ],
+         "jlpt" : [],
+         "senses" : [
+            {
+               "antonyms" : [],
+               "english_definitions" : [
+                  "capital intensive"
+               ],
+               "info" : [],
+               "links" : [],
+               "parts_of_speech" : [
+                  "Noun",
+                  "Noun or verb acting prenominally"
+               ],
+               "restrictions" : [],
+               "see_also" : [],
+               "source" : [],
+               "tags" : []
+            }
+         ],
+         "slug" : "è³æ¬éç´",
+         "tags" : []
+      },
+      {
+         "attribution" : {
+            "dbpedia" : false,
+            "jmdict" : true,
+            "jmnedict" : false
+         },
+         "is_common" : false,
+         "japanese" : [
+            {
+               "reading" : "ãã»ããã",
+               "word" : "è³æ¬è²¡"
+            }
+         ],
+         "jlpt" : [],
+         "senses" : [
+            {
+               "antonyms" : [],
+               "english_definitions" : [
+                  "capital goods"
+               ],
+               "info" : [],
+               "links" : [],
+               "parts_of_speech" : [
+                  "Noun"
+               ],
+               "restrictions" : [],
+               "see_also" : [],
+               "source" : [],
+               "tags" : []
+            }
+         ],
+         "slug" : "è³æ¬è²¡",
+         "tags" : []
+      },
+      {
+         "attribution" : {
+            "dbpedia" : "http://dbpedia.org/resource/Das_Kapital",
+            "jmdict" : true,
+            "jmnedict" : false
+         },
+         "is_common" : false,
+         "japanese" : [
+            {
+               "reading" : "ãã»ããã",
+               "word" : "è³æ¬è«"
+            }
+         ],
+         "jlpt" : [],
+         "senses" : [
+            {
+               "antonyms" : [],
+               "english_definitions" : [
+                  "Das Kapital",
+                  "Capital"
+               ],
+               "info" : [],
+               "links" : [],
+               "parts_of_speech" : [
+                  "Noun"
+               ],
+               "restrictions" : [],
+               "see_also" : [],
+               "source" : [],
+               "tags" : []
+            },
+            {
+               "antonyms" : [],
+               "english_definitions" : [
+                  "Das Kapital"
+               ],
+               "info" : [],
+               "links" : [
+                  {
+                     "text" : "Read âDas Kapitalâ on English Wikipedia",
+                     "url" : "http://en.wikipedia.org/wiki/Das_Kapital?oldid=489538422"
+                  },
+                  {
+                     "text" : "Read âè³æ¬è«â on Japanese Wikipedia",
+                     "url" : "http://ja.wikipedia.org/wiki/è³æ¬è«?oldid=42482911"
+                  }
+               ],
+               "parts_of_speech" : [
+                  "Wikipedia definition"
+               ],
+               "restrictions" : [],
+               "see_also" : [],
+               "sentences" : [],
+               "source" : [],
+               "tags" : []
+            }
+         ],
+         "slug" : "è³æ¬è«",
+         "tags" : []
+      },
+      {
+         "attribution" : {
+            "dbpedia" : "http://dbpedia.org/resource/Capital_accumulation",
+            "jmdict" : true,
+            "jmnedict" : false
+         },
+         "is_common" : false,
+         "japanese" : [
+            {
+               "reading" : "ãã»ãã¡ããã",
+               "word" : "è³æ¬èç©"
+            }
+         ],
+         "jlpt" : [],
+         "senses" : [
+            {
+               "antonyms" : [],
+               "english_definitions" : [
+                  "capital accumulation"
+               ],
+               "info" : [],
+               "links" : [],
+               "parts_of_speech" : [
+                  "Noun"
+               ],
+               "restrictions" : [],
+               "see_also" : [],
+               "source" : [],
+               "tags" : []
+            },
+            {
+               "antonyms" : [],
+               "english_definitions" : [
+                  "Capital accumulation"
+               ],
+               "info" : [],
+               "links" : [
+                  {
+                     "text" : "Read âCapital accumulationâ on English Wikipedia",
+                     "url" : "http://en.wikipedia.org/wiki/Capital_accumulation?oldid=494433993"
+                  },
+                  {
+                     "text" : "Read âè³æ¬èç©â on Japanese Wikipedia",
+                     "url" : "http://ja.wikipedia.org/wiki/è³æ¬èç©?oldid=40830435"
+                  }
+               ],
+               "parts_of_speech" : [
+                  "Wikipedia definition"
+               ],
+               "restrictions" : [],
+               "see_also" : [],
+               "sentences" : [],
+               "source" : [],
+               "tags" : []
+            }
+         ],
+         "slug" : "è³æ¬èç©",
+         "tags" : []
+      },
+      {
+         "attribution" : {
+            "dbpedia" : false,
+            "jmdict" : true,
+            "jmnedict" : false
+         },
+         "is_common" : false,
+         "japanese" : [
+            {
+               "reading" : "ãã»ãã¬ã",
+               "word" : "è³æ¬ä¸»"
+            },
+            {
+               "reading" : "ãã»ããã",
+               "word" : "è³æ¬ä¸»"
+            }
+         ],
+         "jlpt" : [],
+         "senses" : [
+            {
+               "antonyms" : [],
+               "english_definitions" : [
+                  "investor",
+                  "stockholder"
+               ],
+               "info" : [],
+               "links" : [],
+               "parts_of_speech" : [
+                  "Noun"
+               ],
+               "restrictions" : [],
+               "see_also" : [],
+               "source" : [],
+               "tags" : []
+            }
+         ],
+         "slug" : "è³æ¬ä¸»",
+         "tags" : []
+      },
+      {
+         "attribution" : {
+            "dbpedia" : false,
+            "jmdict" : true,
+            "jmnedict" : false
+         },
+         "is_common" : false,
+         "japanese" : [
+            {
+               "reading" : "ãã»ããããããã",
+               "word" : "è³æ¬åæ§æ"
+            }
+         ],
+         "jlpt" : [],
+         "senses" : [
+            {
+               "antonyms" : [],
+               "english_definitions" : [
+                  "recapitalization",
+                  "recapitalisation"
+               ],
+               "info" : [],
+               "links" : [],
+               "parts_of_speech" : [
+                  "Noun"
+               ],
+               "restrictions" : [],
+               "see_also" : [],
+               "source" : [],
+               "tags" : []
+            }
+         ],
+         "slug" : "è³æ¬åæ§æ",
+         "tags" : []
+      }
+   ],
+   "meta" : {
+      "status" : 200
+   }
+}
+

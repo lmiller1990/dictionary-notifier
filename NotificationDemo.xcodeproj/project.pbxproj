@@ -17,6 +17,8 @@
 		732B2C93234B68D1000C0054 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B2C92234B68D1000C0054 /* LocalNotificationManager.swift */; };
 		732B2C9523507067000C0054 /* WordSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B2C9423507067000C0054 /* WordSearch.swift */; };
 		732B2C97235073E8000C0054 /* SearchBarCancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B2C96235073E8000C0054 /* SearchBarCancel.swift */; };
+		732B2C9923509A50000C0054 /* jisho_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 732B2C9823509A50000C0054 /* jisho_response.json */; };
+		732B2C9B23509C3B000C0054 /* DefinitionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B2C9A23509C3B000C0054 /* DefinitionRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		732B2C92234B68D1000C0054 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		732B2C9423507067000C0054 /* WordSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearch.swift; sourceTree = "<group>"; };
 		732B2C96235073E8000C0054 /* SearchBarCancel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarCancel.swift; sourceTree = "<group>"; };
+		732B2C9823509A50000C0054 /* jisho_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = jisho_response.json; sourceTree = "<group>"; };
+		732B2C9A23509C3B000C0054 /* DefinitionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,8 @@
 				732B2C8C234B657C000C0054 /* Info.plist */,
 				732B2C7F234B6579000C0054 /* NotificationDemo.xcdatamodeld */,
 				732B2C86234B657C000C0054 /* Preview Content */,
+				732B2C9823509A50000C0054 /* jisho_response.json */,
+				732B2C9A23509C3B000C0054 /* DefinitionRow.swift */,
 			);
 			path = NotificationDemo;
 			sourceTree = "<group>";
@@ -147,6 +153,7 @@
 			files = (
 				732B2C8B234B657C000C0054 /* LaunchScreen.storyboard in Resources */,
 				732B2C88234B657C000C0054 /* Preview Assets.xcassets in Resources */,
+				732B2C9923509A50000C0054 /* jisho_response.json in Resources */,
 				732B2C85234B657C000C0054 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,6 +172,7 @@
 				732B2C83234B6579000C0054 /* ContentView.swift in Sources */,
 				732B2C7E234B6579000C0054 /* SceneDelegate.swift in Sources */,
 				732B2C9523507067000C0054 /* WordSearch.swift in Sources */,
+				732B2C9B23509C3B000C0054 /* DefinitionRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
