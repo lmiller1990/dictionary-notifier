@@ -52,11 +52,11 @@ struct ContentView: View {
     }
     
     func handleSearch() {
-        print("Searching for \(word)")
+        print("Searching for \(self.word.lowercased())")
         
         var components = URLComponents(string: endpoint)!
         components.queryItems = [
-            URLQueryItem(name: "keyword", value: self.word)
+            URLQueryItem(name: "keyword", value: self.word.lowercased())
         ]
         let task = URLSession.shared.dataTask(with: components.url!) { (data, response, error) in
             if let data = data {
