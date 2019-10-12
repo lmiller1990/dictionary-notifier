@@ -1,29 +1,13 @@
 import Foundation
 import SwiftUI
 
-struct DictionaryEntry: Identifiable {
-    struct Word {
-        var furigana: String
-        var kanji: String?
-    }
-    struct Sense: Identifiable {
-        var id: Int
-        var partsOfSpeech: [String]
-        var meanings: [String]
-    }
-    
-    var id: Int
-    var word: Word
-    var senses: [Sense]
-}
-
 struct DefintionEnglish : View {
-    var sense: DictionaryEntry.Sense
+     var meaning: Entry.Meaning
     
     var body : some View {
         VStack (alignment: .leading) {
-            Text(sense.partsOfSpeech.joined(separator: ", ")).font(.footnote)
-            ForEach(sense.meanings, id: \.self) { meaning in
+            Text(meaning.partsOfSpeech.joined(separator: ", ")).font(.footnote)
+            ForEach(meaning.definitions, id: \.self) { meaning in
                 Text(meaning)
             }
         }
@@ -31,53 +15,47 @@ struct DefintionEnglish : View {
 }
 
 struct DefinitionEntry : View {
-    var entry: DictionaryEntry
+    var entry: Entry
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(entry.word.furigana)
-                .font(.subheadline)
-            
-            if entry.word.kanji != nil {
-                Text(entry.word.kanji!).font(.title)
-            } else {
-                Text(entry.word.furigana)
-            }
-            
-            ForEach(entry.senses) { sense in
-                DefintionEnglish(sense: sense)
+            if entry.kanji != nil {
+                Text(entry.kana)
+                    .font(.subheadline)
                 
+                Text(entry.kanji!)
+                    .font(.title)
+            } else {
+                Text(entry.kana).font(.title)
             }
+        
+            DefintionEnglish(meaning: entry.meaning)
+            
         }
     }
 }
 
 struct DefinitionList : View {
-    var dictEntries: [DictionaryEntry]
+    var dictEntries: [Entry]
     
     var body: some View {
-        List(dictEntries) { entry in
+        List(dictEntries, id: \.kana) { entry in
             DefinitionEntry(entry: entry)
         }
     }
 }
 
-let entries: [DictionaryEntry] = [
-    DictionaryEntry(
-        id: 1,
-        word: DictionaryEntry.Word(furigana: "しほんしゅぎしゃかい", kanji: "資本主義社会"),
-        senses: [
-            DictionaryEntry.Sense(id: 1, partsOfSpeech: ["Noun"], meanings: ["Funds; capital"])
-        ]
+let entries: [Entry] = [
+    Entry(
+        kana: "しほんしゅぎしゃかい",
+        kanji: "資本主義社会",
+        meaning: Entry.Meaning(definitions: ["Funds; capital"], partsOfSpeech: ["Noun"])
     ),
     
-    DictionaryEntry(
-        id: 2,
-        word: DictionaryEntry.Word(furigana: "しほんしゅぎ", kanji: "資本主義"),
-        senses: [
-            DictionaryEntry.Sense(id: 1, partsOfSpeech: ["Noun", "No-adjective"], meanings: ["Capitalism", "To be a capitalist"])
-        ]
-    ),
+    Entry(
+        kana: "アルバイト",
+        meaning: Entry.Meaning(definitions: ["part-time job", "side job"], partsOfSpeech: ["Noun", "Suru verb"])
+    )
 ]
 
 struct DefinitionList_Previews: PreviewProvider {

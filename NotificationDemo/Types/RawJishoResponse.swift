@@ -5,7 +5,7 @@ struct RawJishoResponse: Codable {
 
     struct JapaneseWord: Codable {
         var word: String?
-        var reading: String
+        var reading: String?
     }
     
     struct Sense: Codable {
