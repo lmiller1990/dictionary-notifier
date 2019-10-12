@@ -15,11 +15,12 @@
 		732B2C88234B657C000C0054 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 732B2C87234B657C000C0054 /* Preview Assets.xcassets */; };
 		732B2C8B234B657C000C0054 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 732B2C89234B657C000C0054 /* LaunchScreen.storyboard */; };
 		732B2C93234B68D1000C0054 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B2C92234B68D1000C0054 /* LocalNotificationManager.swift */; };
-		732B2C9523507067000C0054 /* WordSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B2C9423507067000C0054 /* WordSearch.swift */; };
+		732B2C9523507067000C0054 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B2C9423507067000C0054 /* SearchBar.swift */; };
 		732B2C97235073E8000C0054 /* SearchBarCancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B2C96235073E8000C0054 /* SearchBarCancel.swift */; };
 		732B2C9923509A50000C0054 /* jisho_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 732B2C9823509A50000C0054 /* jisho_response.json */; };
 		732B2C9B23509C3B000C0054 /* DefinitionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B2C9A23509C3B000C0054 /* DefinitionList.swift */; };
 		732B2C9E23514A97000C0054 /* RawJishoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B2C9D23514A97000C0054 /* RawJishoResponse.swift */; };
+		732B2CA023518F89000C0054 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B2C9F23518F89000C0054 /* Entry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,11 +34,12 @@
 		732B2C8A234B657C000C0054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		732B2C8C234B657C000C0054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		732B2C92234B68D1000C0054 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
-		732B2C9423507067000C0054 /* WordSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearch.swift; sourceTree = "<group>"; };
+		732B2C9423507067000C0054 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		732B2C96235073E8000C0054 /* SearchBarCancel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarCancel.swift; sourceTree = "<group>"; };
 		732B2C9823509A50000C0054 /* jisho_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = jisho_response.json; sourceTree = "<group>"; };
 		732B2C9A23509C3B000C0054 /* DefinitionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionList.swift; sourceTree = "<group>"; };
 		732B2C9D23514A97000C0054 /* RawJishoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawJishoResponse.swift; sourceTree = "<group>"; };
+		732B2C9F23518F89000C0054 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Entry.swift; path = NotificationDemo/Types/Entry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +56,8 @@
 		732B2C6F234B6579000C0054 = {
 			isa = PBXGroup;
 			children = (
+				732B2C9F23518F89000C0054 /* Entry.swift */,
 				732B2C92234B68D1000C0054 /* LocalNotificationManager.swift */,
-				732B2C9423507067000C0054 /* WordSearch.swift */,
-				732B2C96235073E8000C0054 /* SearchBarCancel.swift */,
 				732B2C7A234B6579000C0054 /* NotificationDemo */,
 				732B2C79234B6579000C0054 /* Products */,
 			);
@@ -73,17 +74,17 @@
 		732B2C7A234B6579000C0054 /* NotificationDemo */ = {
 			isa = PBXGroup;
 			children = (
+				732B2CA223519041000C0054 /* Widgets */,
+				732B2CA123518FD0000C0054 /* Views */,
 				732B2C9C23514A6C000C0054 /* Types */,
 				732B2C7B234B6579000C0054 /* AppDelegate.swift */,
 				732B2C7D234B6579000C0054 /* SceneDelegate.swift */,
-				732B2C82234B6579000C0054 /* ContentView.swift */,
 				732B2C84234B657C000C0054 /* Assets.xcassets */,
 				732B2C89234B657C000C0054 /* LaunchScreen.storyboard */,
 				732B2C8C234B657C000C0054 /* Info.plist */,
 				732B2C7F234B6579000C0054 /* NotificationDemo.xcdatamodeld */,
 				732B2C86234B657C000C0054 /* Preview Content */,
 				732B2C9823509A50000C0054 /* jisho_response.json */,
-				732B2C9A23509C3B000C0054 /* DefinitionList.swift */,
 			);
 			path = NotificationDemo;
 			sourceTree = "<group>";
@@ -102,6 +103,24 @@
 				732B2C9D23514A97000C0054 /* RawJishoResponse.swift */,
 			);
 			path = Types;
+			sourceTree = "<group>";
+		};
+		732B2CA123518FD0000C0054 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				732B2C9A23509C3B000C0054 /* DefinitionList.swift */,
+				732B2C82234B6579000C0054 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		732B2CA223519041000C0054 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				732B2C9423507067000C0054 /* SearchBar.swift */,
+				732B2C96235073E8000C0054 /* SearchBarCancel.swift */,
+			);
+			path = Widgets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				732B2CA023518F89000C0054 /* Entry.swift in Sources */,
 				732B2C97235073E8000C0054 /* SearchBarCancel.swift in Sources */,
 				732B2C81234B6579000C0054 /* NotificationDemo.xcdatamodeld in Sources */,
 				732B2C7C234B6579000C0054 /* AppDelegate.swift in Sources */,
@@ -183,7 +203,7 @@
 				732B2C9E23514A97000C0054 /* RawJishoResponse.swift in Sources */,
 				732B2C83234B6579000C0054 /* ContentView.swift in Sources */,
 				732B2C7E234B6579000C0054 /* SceneDelegate.swift in Sources */,
-				732B2C9523507067000C0054 /* WordSearch.swift in Sources */,
+				732B2C9523507067000C0054 /* SearchBar.swift in Sources */,
 				732B2C9B23509C3B000C0054 /* DefinitionList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

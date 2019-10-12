@@ -1,16 +1,6 @@
 import SwiftUI
 import Foundation
 
-struct Entry {
-    struct Meaning {
-        var definitions: [String]
-        var partsOfSpeech: [String]
-    }
-    
-    var kana: String
-    var kanji: String?
-    var meaning: Meaning
-}
 
 struct ContentView: View {
     @State var word: String = ""
