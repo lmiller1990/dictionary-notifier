@@ -28,6 +28,29 @@ struct ContentView: View {
         }
     }
     
+    func constructNotificationText(_ entry: Entry) -> String {
+        var text = ""
+        if (entry.kanji != nil) {
+            text = entry.kanji!
+        } else {
+            text = entry.kana
+        }
+        
+        if (entry.meaning.definitions.count > 0) {
+            text += " - " + entry.meaning.definitions[0]
+        }
+        
+        print("Notification text is \(text)")
+        
+        return text
+    }
+    
+    func handleNotification(entry: Entry) {
+        let text = constructNotificationText(entry)
+        self.manager.addNotification(title: text)
+        self.manager.schedule()
+    }
+    
     func handleSearch() {
         print("Searching for \(word)")
         
@@ -44,8 +67,6 @@ struct ContentView: View {
                 } catch {
                     print("error", error, data)
                 }
-                // self.manager.addNotification(title: "\(self.word): \(self.definition)")
-                // self.manager.schedule()
             }
         }
         task.resume()
@@ -60,7 +81,10 @@ struct ContentView: View {
                 Text(definition)
             }
             
-            DefinitionList(dictEntries: dictEntries)
+            DefinitionList(
+                dictEntries: dictEntries,
+                onRequestNotification: handleNotification
+            )
             
             Spacer()
         }

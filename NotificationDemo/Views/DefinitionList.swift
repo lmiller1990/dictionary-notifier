@@ -16,8 +16,10 @@ struct DefintionEnglish : View {
 
 struct DefinitionEntry : View {
     var entry: Entry
+    var onRequestNotification: (_ entry: Entry) -> Void
     
     func setReminder() {
+        onRequestNotification(entry)
     }
     
     var body: some View {
@@ -34,16 +36,14 @@ struct DefinitionEntry : View {
                 }
                 
                 DefintionEnglish(meaning: entry.meaning)
-            }.fixedSize(horizontal: true, vertical: false)
+            }
 
-            
             Spacer()
             
             HStack {
-                Button(action: { self.setReminder() }) {
-                    // Text("Remind Me")
-                    Image(systemName: "bell")
-                }.frame(width: 30, height: 30)
+                Image(systemName: "bell")
+                    .onTapGesture { self.setReminder() }
+                
             }
         }
     }
@@ -51,10 +51,14 @@ struct DefinitionEntry : View {
 
 struct DefinitionList : View {
     var dictEntries: [Entry]
+    var onRequestNotification: (_ word: Entry) -> Void
     
     var body: some View {
         List(dictEntries, id: \.kana) { entry in
-            DefinitionEntry(entry: entry)
+            DefinitionEntry(
+                entry: entry,
+                onRequestNotification: self.onRequestNotification
+            )
         }
     }
 }
@@ -69,11 +73,23 @@ let entries: [Entry] = [
     Entry(
         kana: "アルバイト",
         meaning: Entry.Meaning(definitions: ["part-time job", "side job"], partsOfSpeech: ["Noun", "Suru verb"])
-    )
+    ),
+    
+    Entry(
+           kana: "イエメンオオトカゲ",
+           meaning: Entry.Meaning(definitions: ["Yemen monitor (Varanus yemenensis, species of carnivorous monitor lizard found at the base of the Tihama mountains along the western coast of Yemen)"], partsOfSpeech: ["Noun", "Suru verb"])
+       )
 ]
+
+func mock(_ entry: Entry) -> Void {
+    return
+}
 
 struct DefinitionList_Previews: PreviewProvider {
     static var previews: some View {
-        DefinitionList(dictEntries: entries)
+        DefinitionList(
+            dictEntries: entries,
+            onRequestNotification: mock
+        )
     }
 }
