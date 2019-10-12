@@ -1,11 +1,3 @@
-//
-//  DefinitionRow.swift
-//  NotificationDemo
-//
-//  Created by Lachlan Miller on 11/10/19.
-//  Copyright © 2019 Lachlan Miller. All rights reserved.
-//
-
 import Foundation
 import SwiftUI
 
@@ -60,7 +52,7 @@ struct DefinitionEntry : View {
     }
 }
 
-struct DefinitionRow : View {
+struct DefinitionList : View {
     var dictEntries: [DictionaryEntry]
     
     var body: some View {
@@ -88,8 +80,8 @@ let entries: [DictionaryEntry] = [
     ),
 ]
 
-struct DefinitionRow_Previews: PreviewProvider {
+struct DefinitionList_Previews: PreviewProvider {
     static var previews: some View {
-        DefinitionRow(dictEntries: entries)
+        DefinitionList(dictEntries: entries)
     }
 }
