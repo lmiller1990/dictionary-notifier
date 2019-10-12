@@ -17,20 +17,34 @@ struct DefintionEnglish : View {
 struct DefinitionEntry : View {
     var entry: Entry
     
+    func setReminder() {
+    }
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            if entry.kanji != nil {
-                Text(entry.kana)
-                    .font(.subheadline)
+        HStack {
+            VStack(alignment: .leading) {
+                if entry.kanji != nil {
+                    Text(entry.kana)
+                        .font(.subheadline)
+                    
+                    Text(entry.kanji!)
+                        .font(.title)
+                } else {
+                    Text(entry.kana).font(.title)
+                }
                 
-                Text(entry.kanji!)
-                    .font(.title)
-            } else {
-                Text(entry.kana).font(.title)
-            }
-        
-            DefintionEnglish(meaning: entry.meaning)
+                DefintionEnglish(meaning: entry.meaning)
+            }.fixedSize(horizontal: true, vertical: false)
+
             
+            Spacer()
+            
+            HStack {
+                Button(action: { self.setReminder() }) {
+                    // Text("Remind Me")
+                    Image(systemName: "bell")
+                }.frame(width: 30, height: 30)
+            }
         }
     }
 }
