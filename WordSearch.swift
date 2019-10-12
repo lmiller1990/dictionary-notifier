@@ -1,11 +1,3 @@
-//
-//  WordSearch.swift
-//  NotificationDemo
-//
-//  Created by Lachlan Miller on 11/10/19.
-//  Copyright © 2019 Lachlan Miller. All rights reserved.
-//
-
 import Foundation
 import SwiftUI
 
@@ -44,6 +36,7 @@ struct SearchBar: UIViewRepresentable {
         }
         
         func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            UIApplication.shared.endEditing()
             self.searchBarSearchButtonClicked()
         }
     }

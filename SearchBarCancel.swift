@@ -19,10 +19,6 @@ struct SearchBarCancel: View {
         UIApplication.shared.endEditing()
     }
     
-    func greet() {
-        print("HI! \(text)")
-    }
-    
     var body: some View {
         HStack {
             SearchBar(text: $text, onSearch: onSearch)
