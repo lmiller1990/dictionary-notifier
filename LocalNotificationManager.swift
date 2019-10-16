@@ -1,4 +1,6 @@
 import UserNotifications
+import SwiftUI
+import CoreData
 
 
 struct Notification {
@@ -35,15 +37,15 @@ class LocalNotificationManager {
             }
         }
     }
-    
+        
     func scheduleNotifications() -> Void {
         for notification in notifications {
             let content = UNMutableNotificationContent()
             content.title = notification.title
             for i in [1800.0, 5400.0, 86400.0] {
-                let id = UUID().uuidString
+                let id = UUID()
                 let trigger = UNTimeIntervalNotificationTrigger(timeInterval: i, repeats: false)
-                let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+                let request = UNNotificationRequest(identifier: id.uuidString, content: content, trigger: trigger)
                 
                 UNUserNotificationCenter.current().add(request) { error in
                     guard error == nil else { return }
