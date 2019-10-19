@@ -52,6 +52,7 @@ class LocalNotificationManager {
                     print("Scheduling notification with id: \(id)")
                 }
             }
+            notifications = []
         }
     }
 }

@@ -7,41 +7,16 @@ struct ContentView: View {
     @State var word: String = ""
     @State var definition: String = ""
     @State var dictEntries: [Entry] = []
+    @State var dbWords: [String] = []
     
     var endpoint: String = "https://jisho.org/api/v1/search/words"
     let manager = LocalNotificationManager()
     
-    func createData(){
-        
-        //As we know that container is set up in the AppDelegates so we need to refer that container.
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
-        //We need to create a context from this container
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        //Now let’s create an entity and new user records.
-        let userEntity = NSEntityDescription.entity(forEntityName: "Users", in: managedContext)!
-        
-        //final, we need to add some data to our newly created record for each keys using
-        //here adding 5 data with loop
-        
-        for i in 1...5 {
-            
-            let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
-            user.setValue("Ankur\(i)", forKeyPath: "name")
-        }
-        
-        //Now we have set all the values. The next step is to save them inside the Core Data
-        
-        do {
-            try managedContext.save()
-            
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
+    init() {
+        loadCurrentDbWords()
     }
     
-    init() {
+    func loadCurrentDbWords() {
         print("Initializing")
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -50,15 +25,18 @@ struct ContentView: View {
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "QueuedNotifications")
         
+        var words: [String] = []
         do {
             let result = try managedContext.fetch(fetchRequest)
             for data in result as! [NSManagedObject] {
                 print(data.value(forKey: "uuid") as! String)
                 print(data.value(forKey: "word") as! String)
+                words.append(data.value(forKey: "word") as! String)
             }
         } catch {
             print("Failed")
         }
+        dbWords = words
     }
     
     func parseRawJishoResponse(response: RawJishoResponse) -> [Entry] {
@@ -121,9 +99,8 @@ struct ContentView: View {
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let word = getWord(entry)
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "QueuedNotifications")
-        fetchRequest.predicate = NSPredicate(format: "word == %@", word)
+        fetchRequest.predicate = NSPredicate(format: "word == %@", entry.kana)
         
         do {
             let result = try managedContext.fetch(fetchRequest)
@@ -135,8 +112,6 @@ struct ContentView: View {
     }
     
     func addWordToDb(_ entry: Entry) {
-        let text = getWord(entry)
-        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -146,8 +121,9 @@ struct ContentView: View {
         let userEntity = NSEntityDescription.entity(forEntityName: "QueuedNotifications", in: managedContext)!
         
         let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
-        user.setValue(text, forKey: "word")
+        user.setValue(entry.kana, forKey: "word")
         user.setValue(UUID().uuidString, forKey: "uuid")
+        self.dbWords.append(entry.kana)
     }
     
     func handleNotification(entry: Entry) {
@@ -184,6 +160,11 @@ struct ContentView: View {
         task.resume()
     }
     
+    func handleAppear() {
+        print("Appear!")
+        loadCurrentDbWords()
+    }
+    
     var body: some View {
         VStack {
             SearchBarCancel(text: $word, onSearch: handleSearch)
@@ -195,10 +176,13 @@ struct ContentView: View {
             
             DefinitionList(
                 dictEntries: dictEntries,
-                onRequestNotification: handleNotification
+                onRequestNotification: handleNotification,
+                dbWords: dbWords
             )
             
             Spacer()
+        }.onAppear {
+            self.handleAppear()
         }
     }
 }

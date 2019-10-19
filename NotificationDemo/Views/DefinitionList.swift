@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 
 struct DefintionEnglish : View {
-     var meaning: Entry.Meaning
+    var meaning: Entry.Meaning
     
     var body : some View {
         VStack (alignment: .leading) {
@@ -17,9 +17,14 @@ struct DefintionEnglish : View {
 struct DefinitionEntry : View {
     var entry: Entry
     var onRequestNotification: (_ entry: Entry) -> Void
+    var dbWords: [String] = []
     
     func setReminder() {
         onRequestNotification(entry)
+    }
+    
+    func inDb(_ entry: Entry) -> Bool {
+        return dbWords.contains(entry.kana)
     }
     
     var body: some View {
@@ -41,7 +46,7 @@ struct DefinitionEntry : View {
             Spacer()
             
             HStack {
-                Image(systemName: "bell")
+                Image(systemName: self.inDb(entry) ? "bell.fill" : "bell")
                     .onTapGesture { self.setReminder() }
                 
             }
@@ -52,12 +57,14 @@ struct DefinitionEntry : View {
 struct DefinitionList : View {
     var dictEntries: [Entry]
     var onRequestNotification: (_ word: Entry) -> Void
+    var dbWords: [String]
     
     var body: some View {
         List(dictEntries, id: \.kana) { entry in
             DefinitionEntry(
                 entry: entry,
-                onRequestNotification: self.onRequestNotification
+                onRequestNotification: self.onRequestNotification,
+                dbWords: self.dbWords
             )
         }
     }
@@ -89,7 +96,8 @@ struct DefinitionList_Previews: PreviewProvider {
     static var previews: some View {
         DefinitionList(
             dictEntries: entries,
-            onRequestNotification: mock
+            onRequestNotification: mock,
+            dbWords: []
         )
     }
 }
