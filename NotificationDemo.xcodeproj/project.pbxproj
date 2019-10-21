@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		732B2C7C234B6579000C0054 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B2C7B234B6579000C0054 /* AppDelegate.swift */; };
 		732B2C7E234B6579000C0054 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B2C7D234B6579000C0054 /* SceneDelegate.swift */; };
-		732B2C81234B6579000C0054 /* NotificationDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 732B2C7F234B6579000C0054 /* NotificationDemo.xcdatamodeld */; };
 		732B2C83234B6579000C0054 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B2C82234B6579000C0054 /* ContentView.swift */; };
 		732B2C85234B657C000C0054 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 732B2C84234B657C000C0054 /* Assets.xcassets */; };
 		732B2C88234B657C000C0054 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 732B2C87234B657C000C0054 /* Preview Assets.xcassets */; };
@@ -21,13 +20,27 @@
 		732B2C9B23509C3B000C0054 /* DefinitionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B2C9A23509C3B000C0054 /* DefinitionList.swift */; };
 		732B2C9E23514A97000C0054 /* RawJishoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B2C9D23514A97000C0054 /* RawJishoResponse.swift */; };
 		732B2CA023518F89000C0054 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B2C9F23518F89000C0054 /* Entry.swift */; };
+		734F570D235C49EE0082C715 /* 87x87.png in Resources */ = {isa = PBXBuildFile; fileRef = 734F5703235C49EE0082C715 /* 87x87.png */; };
+		734F570E235C49EE0082C715 /* 180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 734F5704235C49EE0082C715 /* 180x180.png */; };
+		734F570F235C49EE0082C715 /* 40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 734F5705235C49EE0082C715 /* 40x40.png */; };
+		734F5710235C49EE0082C715 /* 152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = 734F5706235C49EE0082C715 /* 152x152.png */; };
+		734F5711235C49EE0082C715 /* 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 734F5707235C49EE0082C715 /* 120x120.png */; };
+		734F5712235C49EE0082C715 /* 167x167.png in Resources */ = {isa = PBXBuildFile; fileRef = 734F5708235C49EE0082C715 /* 167x167.png */; };
+		734F5713235C49EE0082C715 /* 60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 734F5709235C49EE0082C715 /* 60x60.png */; };
+		734F5714235C49EE0082C715 /* 58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 734F570A235C49EE0082C715 /* 58x58.png */; };
+		734F5715235C49EE0082C715 /* 76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 734F570B235C49EE0082C715 /* 76x76.png */; };
+		734F5716235C49EE0082C715 /* 80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 734F570C235C49EE0082C715 /* 80x80.png */; };
+		734F5719235C4B400082C715 /* 20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = 734F5717235C4B3F0082C715 /* 20x20.png */; };
+		734F571A235C4B400082C715 /* 29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 734F5718235C4B3F0082C715 /* 29x29.png */; };
+		734F571C235C4CDA0082C715 /* 1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 734F571B235C4CDA0082C715 /* 1024x1024.png */; };
+		73BC91882355EF3700D300C9 /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC91872355EF3700D300C9 /* NSManagedObjectContext.swift */; };
+		73EC397523572A90002CA378 /* NotificationDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 73EC397323572A90002CA378 /* NotificationDemo.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		732B2C78234B6579000C0054 /* NotificationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotificationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		732B2C78234B6579000C0054 /* Shirabe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shirabe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		732B2C7B234B6579000C0054 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		732B2C7D234B6579000C0054 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		732B2C80234B6579000C0054 /* NotificationDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NotificationDemo.xcdatamodel; sourceTree = "<group>"; };
 		732B2C82234B6579000C0054 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		732B2C84234B657C000C0054 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		732B2C87234B657C000C0054 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -40,6 +53,21 @@
 		732B2C9A23509C3B000C0054 /* DefinitionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionList.swift; sourceTree = "<group>"; };
 		732B2C9D23514A97000C0054 /* RawJishoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawJishoResponse.swift; sourceTree = "<group>"; };
 		732B2C9F23518F89000C0054 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Entry.swift; path = NotificationDemo/Types/Entry.swift; sourceTree = "<group>"; };
+		734F5703235C49EE0082C715 /* 87x87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 87x87.png; sourceTree = "<group>"; };
+		734F5704235C49EE0082C715 /* 180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 180x180.png; sourceTree = "<group>"; };
+		734F5705235C49EE0082C715 /* 40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 40x40.png; sourceTree = "<group>"; };
+		734F5706235C49EE0082C715 /* 152x152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 152x152.png; sourceTree = "<group>"; };
+		734F5707235C49EE0082C715 /* 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120x120.png; sourceTree = "<group>"; };
+		734F5708235C49EE0082C715 /* 167x167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 167x167.png; sourceTree = "<group>"; };
+		734F5709235C49EE0082C715 /* 60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 60x60.png; sourceTree = "<group>"; };
+		734F570A235C49EE0082C715 /* 58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 58x58.png; sourceTree = "<group>"; };
+		734F570B235C49EE0082C715 /* 76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 76x76.png; sourceTree = "<group>"; };
+		734F570C235C49EE0082C715 /* 80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 80x80.png; sourceTree = "<group>"; };
+		734F5717235C4B3F0082C715 /* 20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 20x20.png; sourceTree = "<group>"; };
+		734F5718235C4B3F0082C715 /* 29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 29x29.png; sourceTree = "<group>"; };
+		734F571B235C4CDA0082C715 /* 1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024x1024.png; sourceTree = "<group>"; };
+		73BC91872355EF3700D300C9 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
+		73EC397423572A90002CA378 /* NotificationData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NotificationData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +84,7 @@
 		732B2C6F234B6579000C0054 = {
 			isa = PBXGroup;
 			children = (
+				73EC397323572A90002CA378 /* NotificationDemo.xcdatamodeld */,
 				732B2C9F23518F89000C0054 /* Entry.swift */,
 				732B2C92234B68D1000C0054 /* LocalNotificationManager.swift */,
 				732B2C7A234B6579000C0054 /* NotificationDemo */,
@@ -66,7 +95,7 @@
 		732B2C79234B6579000C0054 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				732B2C78234B6579000C0054 /* NotificationDemo.app */,
+				732B2C78234B6579000C0054 /* Shirabe.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -74,6 +103,9 @@
 		732B2C7A234B6579000C0054 /* NotificationDemo */ = {
 			isa = PBXGroup;
 			children = (
+				734F5702235C49EE0082C715 /* Icons */,
+				73499A9B2355F51D0069B451 /* ViewModels */,
+				73BC91862355EF2300D300C9 /* Extensions */,
 				732B2CA223519041000C0054 /* Widgets */,
 				732B2CA123518FD0000C0054 /* Views */,
 				732B2C9C23514A6C000C0054 /* Types */,
@@ -82,7 +114,6 @@
 				732B2C84234B657C000C0054 /* Assets.xcassets */,
 				732B2C89234B657C000C0054 /* LaunchScreen.storyboard */,
 				732B2C8C234B657C000C0054 /* Info.plist */,
-				732B2C7F234B6579000C0054 /* NotificationDemo.xcdatamodeld */,
 				732B2C86234B657C000C0054 /* Preview Content */,
 				732B2C9823509A50000C0054 /* jisho_response.json */,
 			);
@@ -123,6 +154,42 @@
 			path = Widgets;
 			sourceTree = "<group>";
 		};
+		73499A9B2355F51D0069B451 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		734F5702235C49EE0082C715 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				734F571B235C4CDA0082C715 /* 1024x1024.png */,
+				734F5717235C4B3F0082C715 /* 20x20.png */,
+				734F5718235C4B3F0082C715 /* 29x29.png */,
+				734F5703235C49EE0082C715 /* 87x87.png */,
+				734F5704235C49EE0082C715 /* 180x180.png */,
+				734F5705235C49EE0082C715 /* 40x40.png */,
+				734F5706235C49EE0082C715 /* 152x152.png */,
+				734F5707235C49EE0082C715 /* 120x120.png */,
+				734F5708235C49EE0082C715 /* 167x167.png */,
+				734F5709235C49EE0082C715 /* 60x60.png */,
+				734F570A235C49EE0082C715 /* 58x58.png */,
+				734F570B235C49EE0082C715 /* 76x76.png */,
+				734F570C235C49EE0082C715 /* 80x80.png */,
+			);
+			name = Icons;
+			path = NotificationDemo/MiscAssets/Icons;
+			sourceTree = SOURCE_ROOT;
+		};
+		73BC91862355EF2300D300C9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				73BC91872355EF3700D300C9 /* NSManagedObjectContext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,7 +207,7 @@
 			);
 			name = NotificationDemo;
 			productName = NotificationDemo;
-			productReference = 732B2C78234B6579000C0054 /* NotificationDemo.app */;
+			productReference = 732B2C78234B6579000C0054 /* Shirabe.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -182,9 +249,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				732B2C8B234B657C000C0054 /* LaunchScreen.storyboard in Resources */,
+				734F5713235C49EE0082C715 /* 60x60.png in Resources */,
+				734F571C235C4CDA0082C715 /* 1024x1024.png in Resources */,
+				734F5716235C49EE0082C715 /* 80x80.png in Resources */,
+				734F5711235C49EE0082C715 /* 120x120.png in Resources */,
+				734F5715235C49EE0082C715 /* 76x76.png in Resources */,
+				734F5712235C49EE0082C715 /* 167x167.png in Resources */,
 				732B2C88234B657C000C0054 /* Preview Assets.xcassets in Resources */,
+				734F5719235C4B400082C715 /* 20x20.png in Resources */,
 				732B2C9923509A50000C0054 /* jisho_response.json in Resources */,
 				732B2C85234B657C000C0054 /* Assets.xcassets in Resources */,
+				734F571A235C4B400082C715 /* 29x29.png in Resources */,
+				734F570E235C49EE0082C715 /* 180x180.png in Resources */,
+				734F570F235C49EE0082C715 /* 40x40.png in Resources */,
+				734F5710235C49EE0082C715 /* 152x152.png in Resources */,
+				734F5714235C49EE0082C715 /* 58x58.png in Resources */,
+				734F570D235C49EE0082C715 /* 87x87.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,11 +277,12 @@
 			files = (
 				732B2CA023518F89000C0054 /* Entry.swift in Sources */,
 				732B2C97235073E8000C0054 /* SearchBarCancel.swift in Sources */,
-				732B2C81234B6579000C0054 /* NotificationDemo.xcdatamodeld in Sources */,
 				732B2C7C234B6579000C0054 /* AppDelegate.swift in Sources */,
 				732B2C93234B68D1000C0054 /* LocalNotificationManager.swift in Sources */,
 				732B2C9E23514A97000C0054 /* RawJishoResponse.swift in Sources */,
 				732B2C83234B6579000C0054 /* ContentView.swift in Sources */,
+				73EC397523572A90002CA378 /* NotificationDemo.xcdatamodeld in Sources */,
+				73BC91882355EF3700D300C9 /* NSManagedObjectContext.swift in Sources */,
 				732B2C7E234B6579000C0054 /* SceneDelegate.swift in Sources */,
 				732B2C9523507067000C0054 /* SearchBar.swift in Sources */,
 				732B2C9B23509C3B000C0054 /* DefinitionList.swift in Sources */,
@@ -342,15 +423,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"NotificationDemo/Preview Content\"";
-				DEVELOPMENT_TEAM = 4A3L443KFQ;
+				DEVELOPMENT_TEAM = KMK5HDNTB6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = NotificationDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Lachlan.NotificationDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = app.shirabe;
+				PRODUCT_NAME = Shirabe;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -362,15 +443,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"NotificationDemo/Preview Content\"";
-				DEVELOPMENT_TEAM = 4A3L443KFQ;
+				DEVELOPMENT_TEAM = KMK5HDNTB6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = NotificationDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Lachlan.NotificationDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = app.shirabe;
+				PRODUCT_NAME = Shirabe;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -400,12 +481,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		732B2C7F234B6579000C0054 /* NotificationDemo.xcdatamodeld */ = {
+		73EC397323572A90002CA378 /* NotificationDemo.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				732B2C80234B6579000C0054 /* NotificationDemo.xcdatamodel */,
+				73EC397423572A90002CA378 /* NotificationData.xcdatamodel */,
 			);
-			currentVersion = 732B2C80234B6579000C0054 /* NotificationDemo.xcdatamodel */;
+			currentVersion = 73EC397423572A90002CA378 /* NotificationData.xcdatamodel */;
 			path = NotificationDemo.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
