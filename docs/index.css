@@ -1,29 +1,3 @@
-.seablue {
-  color: #086788;
-}
-
-.bluegreen {
-  color: #07A0C3;
-}
-
-.crimson-glory-red, .red {
-  color: #BC002D;
-}
-
-.munsell-yellow, .yellow {
-  color: #F0C808;
-}
-
-.papaya-whip-white, .white {
-  color: #FFF1D0;
-}
-
-.red-bg       { background-color: #BC002D; }
-.yellow-bg    { background-color: #F0C808; }
-.white-bg     { background-color: #FFF1D0; }
-.seablue-bg   { background-color: #086788; }
-.bluegreen-bg { background-color: #07A0C3; }
-
 body {
   background: red;
   color: white;
