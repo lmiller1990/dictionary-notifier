@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="19A573a" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="DBNotification" representedClassName="DBNotification" syncable="YES" codeGenerationType="class">
+        <attribute name="queuedNotification" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="word" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Movies" representedClassName="Movies" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="DBNotification" positionX="-54" positionY="-9" width="128" height="73"/>
+        <element name="Movies" positionX="-54" positionY="9" width="128" height="58"/>
+    </elements>
 </model>
