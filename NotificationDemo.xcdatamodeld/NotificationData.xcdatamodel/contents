@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="19A573a" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="19A582a" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="QueuedNotifications" representedClassName="QueuedNotifications" syncable="YES" codeGenerationType="class">
+        <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="uuid" optional="YES" attributeType="String"/>
         <attribute name="word" optional="YES" attributeType="String"/>
     </entity>
@@ -8,7 +9,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
     <elements>
+        <element name="QueuedNotifications" positionX="-54" positionY="0" width="128" height="88"/>
         <element name="Users" positionX="-63" positionY="-18" width="128" height="58"/>
-        <element name="QueuedNotifications" positionX="-54" positionY="0" width="128" height="73"/>
     </elements>
 </model>

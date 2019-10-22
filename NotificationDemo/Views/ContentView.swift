@@ -12,31 +12,36 @@ struct ContentView: View {
     var endpoint: String = "https://jisho.org/api/v1/search/words"
     let manager = LocalNotificationManager()
     
-    init() {
-        loadCurrentDbWords()
-    }
-    
-    func loadCurrentDbWords() {
-        print("Initializing")
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
+    func getAllDbWords() -> [String] {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return [""]
+        }
         let managedContext = appDelegate.persistentContainer.viewContext
-        
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "QueuedNotifications")
-        
+
         var words: [String] = []
         do {
             let result = try managedContext.fetch(fetchRequest)
+            print("Words: \(result.count)")
             for data in result as! [NSManagedObject] {
-                print(data.value(forKey: "uuid") as! String)
-                print(data.value(forKey: "word") as! String)
-                words.append(data.value(forKey: "word") as! String)
+                let created = data.value(forKey: "created") as! Date
+                // 432000 is 5 days in seconds
+                if created.addingTimeInterval(432000) < Date() {
+                    // delete - it is too old!
+                    managedContext.delete(data)
+                } else {
+                    words.append(data.value(forKey: "word") as! String)
+                }
             }
         } catch {
             print("Failed")
         }
-        dbWords = words
+        
+        return words
+    }
+    
+    func loadCurrentDbWords() {
+        self.dbWords = self.getAllDbWords()
     }
     
     func parseRawJishoResponse(response: RawJishoResponse) -> [Entry] {
@@ -60,26 +65,9 @@ struct ContentView: View {
     
     func constructNotificationText(_ entry: Entry) -> String {
         var text = getWord(entry)
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return ""
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let userEntity = NSEntityDescription.entity(forEntityName: "QueuedNotifications", in: managedContext)!
-        
-        let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
-        user.setValue(text, forKey: "word")
-        user.setValue(UUID().uuidString, forKey: "uuid")
-        
-        
         if (entry.meaning.definitions.count > 0) {
             text += " - " + entry.meaning.definitions[0]
         }
-        
-        print("Notification text is \(text)")
-        
         return text
     }
     
@@ -118,12 +106,14 @@ struct ContentView: View {
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let userEntity = NSEntityDescription.entity(forEntityName: "QueuedNotifications", in: managedContext)!
+        let wordEntity = NSEntityDescription.entity(forEntityName: "QueuedNotifications", in: managedContext)!
         
-        let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
-        user.setValue(entry.kana, forKey: "word")
-        user.setValue(UUID().uuidString, forKey: "uuid")
-        self.dbWords.append(entry.kana)
+        let word = NSManagedObject(entity: wordEntity, insertInto: managedContext)
+        word.setValue(entry.kana, forKey: "word")
+        word.setValue(UUID().uuidString, forKey: "uuid")
+        word.setValue(Date(), forKey: "created")
+       
+        self.loadCurrentDbWords()
     }
     
     func handleNotification(entry: Entry) {
@@ -132,7 +122,6 @@ struct ContentView: View {
             return
         }
         print("Adding word to DB.")
-        addWordToDb(entry)
         
         let text = constructNotificationText(entry)
         addWordToDb(entry)
@@ -161,14 +150,30 @@ struct ContentView: View {
     }
     
     func handleAppear() {
-        print("Appear!")
         loadCurrentDbWords()
+    }
+    
+    func deleteAll() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let fetchRequest: NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "QueuedNotifications")
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        do {
+            try managedContext.executeAndMergeChanges(using: batchDeleteRequest)
+        } catch {
+            // Dunno what to do or how to handle this
+        }
     }
     
     var body: some View {
         VStack {
             SearchBarCancel(text: $word, onSearch: handleSearch)
             
+            Button(action: self.deleteAll) {
+                Text("Delete all")
+            }
             
             HStack {
                 Text(definition)
@@ -180,7 +185,7 @@ struct ContentView: View {
                 dbWords: dbWords
             )
             
-            Spacer()
+            // Spacer()
         }.onAppear {
             self.handleAppear()
         }
