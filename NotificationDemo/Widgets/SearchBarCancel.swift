@@ -26,7 +26,6 @@ struct SearchBarCancel: View {
             Button(action: { self.closeKeyboard() }) {
                 Text("Close")
                     .foregroundColor(.black)
-                    .padding(.trailing, 10)
             }
         }
     }

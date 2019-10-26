@@ -193,9 +193,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		732B2C77234B6579000C0054 /* NotificationDemo */ = {
+		732B2C77234B6579000C0054 /* Shirabe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 732B2C8F234B657C000C0054 /* Build configuration list for PBXNativeTarget "NotificationDemo" */;
+			buildConfigurationList = 732B2C8F234B657C000C0054 /* Build configuration list for PBXNativeTarget "Shirabe" */;
 			buildPhases = (
 				732B2C74234B6579000C0054 /* Sources */,
 				732B2C75234B6579000C0054 /* Frameworks */,
@@ -205,7 +205,7 @@
 			);
 			dependencies = (
 			);
-			name = NotificationDemo;
+			name = Shirabe;
 			productName = NotificationDemo;
 			productReference = 732B2C78234B6579000C0054 /* Shirabe.app */;
 			productType = "com.apple.product-type.application";
@@ -225,7 +225,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 732B2C73234B6579000C0054 /* Build configuration list for PBXProject "NotificationDemo" */;
+			buildConfigurationList = 732B2C73234B6579000C0054 /* Build configuration list for PBXProject "Shirabe" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -238,7 +238,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				732B2C77234B6579000C0054 /* NotificationDemo */,
+				732B2C77234B6579000C0054 /* Shirabe */,
 			);
 		};
 /* End PBXProject section */
@@ -430,6 +430,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = app.shirabe;
 				PRODUCT_NAME = Shirabe;
 				SWIFT_VERSION = 5.0;
@@ -450,6 +451,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = app.shirabe;
 				PRODUCT_NAME = Shirabe;
 				SWIFT_VERSION = 5.0;
@@ -460,7 +462,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		732B2C73234B6579000C0054 /* Build configuration list for PBXProject "NotificationDemo" */ = {
+		732B2C73234B6579000C0054 /* Build configuration list for PBXProject "Shirabe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				732B2C8D234B657C000C0054 /* Debug */,
@@ -469,7 +471,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		732B2C8F234B657C000C0054 /* Build configuration list for PBXNativeTarget "NotificationDemo" */ = {
+		732B2C8F234B657C000C0054 /* Build configuration list for PBXNativeTarget "Shirabe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				732B2C90234B657C000C0054 /* Debug */,

@@ -13,6 +13,7 @@ struct ContentView: View {
     let manager = LocalNotificationManager()
     
     func getAllDbWords() -> [String] {
+        self.deleteAll()
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return [""]
         }
@@ -167,13 +168,29 @@ struct ContentView: View {
         }
     }
     
+    func navigateToOptions() {
+    }
+    
+    @State var shown = false
+
+    
     var body: some View {
         VStack {
-            SearchBarCancel(text: $word, onSearch: handleSearch)
+            HStack {
+                Image(systemName: "gear")
+                    .onTapGesture { self.shown.toggle() }
+                    .sheet(isPresented: $shown) { () -> OptionsScreen in
+
+                        return OptionsScreen(dismissFlag: self.$shown)
+                    }
             
-            Button(action: self.deleteAll) {
-                Text("Delete all")
-            }
+                                   
+                SearchBarCancel(text: $word, onSearch: handleSearch)
+            }.padding(.leading)
+            
+            // Button(action: self.deleteAll) {
+            //    Text("Delete all")
+            // }
             
             HStack {
                 Text(definition)
@@ -192,8 +209,23 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+let dictEntries: [Entry] = [
+    Entry(kana: "じしょ", kanji: "辞書", meaning: Entry.Meaning(definitions: ["Dictionary"], partsOfSpeech: ["Noun"]))
+]
+
+struct OptionsScreen: View {
+    
+    @Binding var dismissFlag: Bool
+    
+    var body : some View {
+        Button(action: { self.dismissFlag = false }) {
+            Text("dimiss")
+        }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider  {
     static var previews: some View {
-        ContentView()
+        ContentView(dictEntries: dictEntries)
     }
 }

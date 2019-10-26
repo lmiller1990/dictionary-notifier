@@ -42,8 +42,8 @@ class LocalNotificationManager {
         for notification in notifications {
             let content = UNMutableNotificationContent()
             content.title = notification.title
-            // for i in [1800.0, 5400.0, 86400.0] {
-            for i in [5.0] {
+            //for i in [5400.0, 86400.0, 259200.0]  {
+             for i in [5.0] {
                 let id = UUID()
                 let trigger = UNTimeIntervalNotificationTrigger(timeInterval: i, repeats: false)
                 let request = UNNotificationRequest(identifier: id.uuidString, content: content, trigger: trigger)
