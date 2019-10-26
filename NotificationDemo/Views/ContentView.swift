@@ -179,9 +179,8 @@ struct ContentView: View {
             HStack {
                 Image(systemName: "gear")
                     .onTapGesture { self.shown.toggle() }
-                    .sheet(isPresented: $shown) { () -> OptionsScreen in
-
-                        return OptionsScreen(dismissFlag: self.$shown)
+                    .sheet(isPresented: $shown) { () -> OptionsView in
+                        return OptionsView(dismissFlag: self.$shown)
                     }
             
                                    
@@ -212,17 +211,6 @@ struct ContentView: View {
 let dictEntries: [Entry] = [
     Entry(kana: "じしょ", kanji: "辞書", meaning: Entry.Meaning(definitions: ["Dictionary"], partsOfSpeech: ["Noun"]))
 ]
-
-struct OptionsScreen: View {
-    
-    @Binding var dismissFlag: Bool
-    
-    var body : some View {
-        Button(action: { self.dismissFlag = false }) {
-            Text("dimiss")
-        }
-    }
-}
 
 struct ContentView_Previews: PreviewProvider  {
     static var previews: some View {

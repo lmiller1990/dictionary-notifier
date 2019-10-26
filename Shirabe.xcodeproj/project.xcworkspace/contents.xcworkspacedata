@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:NotificationDemo.xcodeproj">
+      location = "self:/Users/lachlan/code/dump/ios/NotificationDemo/Shirabe.xcodeproj">
    </FileRef>
 </Workspace>
