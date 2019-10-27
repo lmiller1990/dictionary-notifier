@@ -13,6 +13,9 @@ struct ContentView: View {
     var endpoint: String = "https://jisho.org/api/v1/search/words"
     let manager = LocalNotificationManager()
     
+    func handleUpdateNotifications(_ notificationIntervals: [NotificationInterval]) -> Void {
+    }
+    
     func getNotificationFrequency() -> Void {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             print("Could not get appDelegate")
@@ -236,7 +239,8 @@ struct ContentView: View {
                     .sheet(isPresented: $shown) { () -> OptionsView in
                         return OptionsView(
                             dismissFlag: self.$shown,
-                            frequenciesInHours: self.frequenciesInHours
+                            frequenciesInHours: self.frequenciesInHours,
+                            handleUpdate: self.handleUpdateNotifications
                         )
                     }
             

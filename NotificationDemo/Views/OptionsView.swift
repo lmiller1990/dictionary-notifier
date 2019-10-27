@@ -3,23 +3,41 @@ import SwiftUI
 
 
 struct OptionsView: View {
-    var units: [String] = ["minutes", "hours"]
-    
     @Binding var dismissFlag: Bool
     var frequenciesInHours: [Int]
-    @State private var notificationDurations: [String] = ["3", "12", "24"]
+    var handleUpdate: (_ notificationIntervals: [NotificationInterval]) -> Void
+    
+    @State private var notificationDurations: [Int] = [3, 12, 24]
     @State private var notificationUnits: [String] = ["hours", "hours", "hours"]
 
     @State var selection1: Int = 1
     
     func saveNotificationFrequency() {
-        // ...
+        let updatedNotificationIntervals: [NotificationInterval] = [0, 1, 2].map { index in
+            if notificationUnits[index] == "days" {
+                return NotificationInterval(
+                    duration: notificationDurations[index] * 24,
+                    unit: "hours"
+                )
+            }
+            
+            return NotificationInterval(
+                duration: notificationDurations[index],
+                unit: "hours"
+            )
+        }
+       
+        handleUpdate(updatedNotificationIntervals)
     }
     
     func handleAppear() {
-        print("Appearing with:", frequenciesInHours)
         for (index, hours) in self.frequenciesInHours.enumerated() {
-            self.notificationDurations[index] = String(hours)
+            if hours > 24 {
+                self.notificationUnits[index] = String("days")
+                self.notificationDurations[index] = hours / 24
+            } else {
+                self.notificationDurations[index] = hours
+            }
         }
     }
     
@@ -38,7 +56,7 @@ struct OptionsView: View {
                 HStack(spacing: 0 as CGFloat) {
                     Picker(selection: self.$notificationDurations[self.selection1], label: Text("Duration")) {
                         ForEach(0..<25) {
-                            Text("\($0)").tag("\($0)")
+                            Text("\($0)").tag($0)
                         }
                     }
                     .frame(maxWidth: (geometry.size.width / 2) as CGFloat)

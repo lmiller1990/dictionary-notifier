@@ -34,6 +34,7 @@
 		734F5719235C4B400082C715 /* 20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = 734F5717235C4B3F0082C715 /* 20x20.png */; };
 		734F571A235C4B400082C715 /* 29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 734F5718235C4B3F0082C715 /* 29x29.png */; };
 		734F571C235C4CDA0082C715 /* 1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 734F571B235C4CDA0082C715 /* 1024x1024.png */; };
+		7361F9B923658DD400A9B593 /* NotificationInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361F9B823658DD400A9B593 /* NotificationInterval.swift */; };
 		73BC91882355EF3700D300C9 /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC91872355EF3700D300C9 /* NSManagedObjectContext.swift */; };
 		73EC397523572A90002CA378 /* NotificationDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 73EC397323572A90002CA378 /* NotificationDemo.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,7 @@
 		734F5717235C4B3F0082C715 /* 20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 20x20.png; sourceTree = "<group>"; };
 		734F5718235C4B3F0082C715 /* 29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 29x29.png; sourceTree = "<group>"; };
 		734F571B235C4CDA0082C715 /* 1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024x1024.png; sourceTree = "<group>"; };
+		7361F9B823658DD400A9B593 /* NotificationInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationInterval.swift; sourceTree = "<group>"; };
 		73BC91872355EF3700D300C9 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
 		73EC397423572A90002CA378 /* NotificationData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NotificationData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				732B2C9D23514A97000C0054 /* RawJishoResponse.swift */,
+				7361F9B823658DD400A9B593 /* NotificationInterval.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				732B2CA023518F89000C0054 /* Entry.swift in Sources */,
 				732B2C97235073E8000C0054 /* SearchBarCancel.swift in Sources */,
 				732B2C7C234B6579000C0054 /* AppDelegate.swift in Sources */,
+				7361F9B923658DD400A9B593 /* NotificationInterval.swift in Sources */,
 				734514872364132100399FC5 /* OptionsView.swift in Sources */,
 				732B2C93234B68D1000C0054 /* LocalNotificationManager.swift in Sources */,
 				732B2C9E23514A97000C0054 /* RawJishoResponse.swift in Sources */,
