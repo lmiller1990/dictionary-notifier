@@ -18,8 +18,7 @@ struct OptionsView: View {
     @Binding var dismissFlag: Bool
     @State private var notificationDurations: [String] = ["3", "12", "24"]
     @State private var notificationUnits: [String] = ["hours", "hours", "hours"]
-    
-//    @State var selection1: String = "1"
+
      @State var selection1: Int = 1
     
     var body: some View {
@@ -32,21 +31,20 @@ struct OptionsView: View {
             }
             .pickerStyle(SegmentedPickerStyle())
 
-            
-            
+
             GeometryReader { geometry in
             
                 HStack(spacing: 0 as CGFloat) {
-                    Picker(selection: self.$notificationDurations[0], label: Text("Duration")) {
+                    Picker(selection: self.$notificationDurations[self.selection1], label: Text("Duration")) {
                         ForEach(0..<25) {
-                            Text("\($0)")
+                            Text("\($0)").tag("\($0)")
                         }
                     }
                     .frame(maxWidth: (geometry.size.width / 2) as CGFloat)
                          .clipped()
                         .border(Color.red)
                     
-                    Picker(selection: self.$notificationUnits[0], label: Text("Time")) {
+                    Picker(selection: self.$notificationUnits[self.selection1], label: Text("Time")) {
                         ForEach(["hours", "days"], id: \.self) {
                             Text("\($0)")
                         }
@@ -58,32 +56,4 @@ struct OptionsView: View {
             }
         }
     }
-    
-//    var body : some View {
-//        GeometryReader { geometry in
-//            HStack(spacing: 0) {
-//
-//                Picker(selection: self.$notificationDurations[0], label: Text("Duration")) {
-//                    ForEach(0 ..< 24) {
-//                        Text(String($0))
-//                    }
-//                }
-//                .frame(maxWidth: geometry.size.width / 2)
-//                .clipped()
-//
-//
-//
-//                Picker(selection: self.$notificationUnits[0], label: Text("Units")) {
-//                    ForEach(TimeUnits.allCases) { v in
-//                        Text(v.name)
-//                    }
-//                }
-//                .frame(maxWidth: geometry.size.width / 2)
-//                .clipped()
-//
-//
-//            }
-//        }
-//
-//    }
 }
