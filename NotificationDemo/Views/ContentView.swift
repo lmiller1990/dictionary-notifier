@@ -11,7 +11,14 @@ struct ContentView: View {
     @State var frequenciesInHours: [Int] = []
     
     let endpoint: String = "https://jisho.org/api/v1/search/words"
-    let manager = LocalNotificationManager()
+    var manager = LocalNotificationManager()
+    
+    func getNotificationFrequeniesInSeconds() -> [Double] {
+        return self.getNotificationFrequenciesInHours().map { hours in
+            return Double(hours * 60 * 60)
+        }
+            
+    }
     
     func handleUpdateNotifications(_ notificationIntervals: [NotificationInterval]) -> Void {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -30,12 +37,13 @@ struct ContentView: View {
                 return
             }
         }
-        self.getNotificationFrequency()
+        self.frequenciesInHours = getNotificationFrequenciesInHours()
+        self.manager.setNotificationFrequencies(frequencies: self.getNotificationFrequeniesInSeconds())
     }
     
-    func getNotificationFrequency() -> Void {
+    func getNotificationFrequenciesInHours() -> [Int] {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
+            return []
         }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "NotificationFrequencies")
@@ -54,8 +62,7 @@ struct ContentView: View {
                     frequencies.append(hours)
                 }
                 
-                self.frequenciesInHours = frequencies
-                return
+                return frequencies
             }
             
             // else, we should load the frequencies from the db
@@ -66,19 +73,21 @@ struct ContentView: View {
                 do {
                     let result = try managedContext.fetch(fetchFrequency) as! [NotificationFrequencies]
                     if result.count != 1 {
-                        return
+                        return []
                     }
                     
                     frequencies.append(result.first?.value(forKey: "hours") as! Int)
                 } catch {
-                    return
+                    return []
                 }
             }
-            self.frequenciesInHours = frequencies
+            return frequencies
 
         } catch {
             print("Error setting notification frequencies")
         }
+        
+        return []
     }
     
     func getAllDbWords() -> [String] {
@@ -217,7 +226,7 @@ struct ContentView: View {
     }
     
     func handleAppear() {
-        getNotificationFrequency()
+        self.frequenciesInHours = getNotificationFrequenciesInHours()
         loadCurrentDbWords()
     }
     

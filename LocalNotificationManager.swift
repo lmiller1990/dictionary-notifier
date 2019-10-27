@@ -9,6 +9,12 @@ struct Notification {
 
 class LocalNotificationManager {
     var notifications = [Notification]()
+    var notificationFrequencies = [Double]()
+
+    func setNotificationFrequencies(frequencies: [Double]) {
+        print("Setting frequencies to \(frequencies)")
+        self.notificationFrequencies = frequencies
+    }
     
     func requestPermission() -> Void {
         UNUserNotificationCenter
@@ -42,8 +48,7 @@ class LocalNotificationManager {
         for notification in notifications {
             let content = UNMutableNotificationContent()
             content.title = notification.title
-            //for i in [5400.0, 86400.0, 259200.0]  {
-             for i in [5.0] {
+             for i in notificationFrequencies {
                 let id = UUID()
                 let trigger = UNTimeIntervalNotificationTrigger(timeInterval: i, repeats: false)
                 let request = UNNotificationRequest(identifier: id.uuidString, content: content, trigger: trigger)
