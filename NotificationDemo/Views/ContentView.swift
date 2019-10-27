@@ -8,9 +8,66 @@ struct ContentView: View {
     @State var definition: String = ""
     @State var dictEntries: [Entry] = []
     @State var dbWords: [String] = []
+    @State var frequenciesInHours: [Int] = []
     
     var endpoint: String = "https://jisho.org/api/v1/search/words"
     let manager = LocalNotificationManager()
+    
+    func getNotificationFrequency() -> Void {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            print("Could not get appDelegate")
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "NotificationFrequencies")
+        
+        var frequencies: [Int] = []
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            print(result)
+            if result.count == 0 {
+                print("No frequencies in DB. Creating them.")
+                for (index, hours) in [6, 18, 48].enumerated() {
+                    // create the frequencies
+                    let notificationEntity = NSEntityDescription.entity(forEntityName: "NotificationFrequencies", in: managedContext)!
+                    
+                    let frequency = NSManagedObject(entity: notificationEntity, insertInto: managedContext)
+                    frequency.setValue(hours, forKey: "hours")
+                    frequency.setValue(index + 1, forKey: "number")
+                    frequencies.append(hours)
+                }
+                
+                print("Created frequencies:", frequencies)
+                self.frequenciesInHours = frequencies
+                return
+            }
+            
+            print("Frequencies in DB. Loading them.")
+            // else, we should load the frequencies from the db
+            for number in 1..<4 {
+                let fetchFrequency = NSFetchRequest<NSFetchRequestResult>(entityName: "NotificationFrequencies")
+                fetchFrequency.predicate = NSPredicate(format: "number == %@", NSNumber(value: number))
+                
+                do {
+                    let result = try managedContext.fetch(fetchFrequency) as! [NotificationFrequencies]
+                    if result.count != 1 {
+                        print("Something went wrong, did not find the frequency for #\(number)")
+                        return
+                    }
+                    
+                    frequencies.append(result.first?.value(forKey: "hours") as! Int)
+                } catch {
+                    print("Failed")
+                    return
+                }
+            }
+            print("Loaded frequencies:", frequencies)
+            self.frequenciesInHours = frequencies
+
+        } catch {
+            print("Error setting notification frequencies")
+        }
+    }
     
     func getAllDbWords() -> [String] {
         self.deleteAll()
@@ -23,7 +80,6 @@ struct ContentView: View {
         var words: [String] = []
         do {
             let result = try managedContext.fetch(fetchRequest)
-            print("Words: \(result.count)")
             for data in result as! [NSManagedObject] {
                 let created = data.value(forKey: "created") as! Date
                 // 432000 is 5 days in seconds
@@ -38,6 +94,7 @@ struct ContentView: View {
             print("Failed")
         }
         
+        print("Words are", words)
         return words
     }
     
@@ -151,6 +208,7 @@ struct ContentView: View {
     }
     
     func handleAppear() {
+        getNotificationFrequency()
         loadCurrentDbWords()
     }
     
@@ -168,11 +226,7 @@ struct ContentView: View {
         }
     }
     
-    func navigateToOptions() {
-    }
-    
     @State var shown = false
-
     
     var body: some View {
         VStack {
@@ -180,7 +234,10 @@ struct ContentView: View {
                 Image(systemName: "gear")
                     .onTapGesture { self.shown.toggle() }
                     .sheet(isPresented: $shown) { () -> OptionsView in
-                        return OptionsView(dismissFlag: self.$shown)
+                        return OptionsView(
+                            dismissFlag: self.$shown,
+                            frequenciesInHours: self.frequenciesInHours
+                        )
                     }
             
                                    

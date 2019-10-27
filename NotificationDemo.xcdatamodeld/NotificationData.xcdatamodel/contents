@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="19A582a" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="NotificationFrequencies" representedClassName="NotificationFrequencies" syncable="YES" codeGenerationType="class">
+        <attribute name="hours" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
     <entity name="QueuedNotifications" representedClassName="QueuedNotifications" syncable="YES" codeGenerationType="class">
         <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="uuid" optional="YES" attributeType="String"/>
@@ -11,5 +15,6 @@
     <elements>
         <element name="QueuedNotifications" positionX="-54" positionY="0" width="128" height="88"/>
         <element name="Users" positionX="-63" positionY="-18" width="128" height="58"/>
+        <element name="NotificationFrequencies" positionX="-54" positionY="18" width="128" height="73"/>
     </elements>
 </model>
