@@ -10,15 +10,31 @@ struct ContentView: View {
     @State var dbWords: [String] = []
     @State var frequenciesInHours: [Int] = []
     
-    var endpoint: String = "https://jisho.org/api/v1/search/words"
+    let endpoint: String = "https://jisho.org/api/v1/search/words"
     let manager = LocalNotificationManager()
     
     func handleUpdateNotifications(_ notificationIntervals: [NotificationInterval]) -> Void {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+   
+        for number in 0..<3 {
+            let fetchFrequency = NSFetchRequest<NSFetchRequestResult>(entityName: "NotificationFrequencies")
+            fetchFrequency.predicate = NSPredicate(format: "number == %@", NSNumber(value: number + 1))
+            
+            do {
+                let result = try managedContext.fetch(fetchFrequency) as! [NotificationFrequencies]
+                result.first?.setValue(notificationIntervals[number].duration, forKey: "hours")
+            } catch {
+                return
+            }
+        }
+        self.getNotificationFrequency()
     }
     
     func getNotificationFrequency() -> Void {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            print("Could not get appDelegate")
             return
         }
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -27,9 +43,7 @@ struct ContentView: View {
         var frequencies: [Int] = []
         do {
             let result = try managedContext.fetch(fetchRequest)
-            print(result)
             if result.count == 0 {
-                print("No frequencies in DB. Creating them.")
                 for (index, hours) in [6, 18, 48].enumerated() {
                     // create the frequencies
                     let notificationEntity = NSEntityDescription.entity(forEntityName: "NotificationFrequencies", in: managedContext)!
@@ -40,12 +54,10 @@ struct ContentView: View {
                     frequencies.append(hours)
                 }
                 
-                print("Created frequencies:", frequencies)
                 self.frequenciesInHours = frequencies
                 return
             }
             
-            print("Frequencies in DB. Loading them.")
             // else, we should load the frequencies from the db
             for number in 1..<4 {
                 let fetchFrequency = NSFetchRequest<NSFetchRequestResult>(entityName: "NotificationFrequencies")
@@ -54,17 +66,14 @@ struct ContentView: View {
                 do {
                     let result = try managedContext.fetch(fetchFrequency) as! [NotificationFrequencies]
                     if result.count != 1 {
-                        print("Something went wrong, did not find the frequency for #\(number)")
                         return
                     }
                     
                     frequencies.append(result.first?.value(forKey: "hours") as! Int)
                 } catch {
-                    print("Failed")
                     return
                 }
             }
-            print("Loaded frequencies:", frequencies)
             self.frequenciesInHours = frequencies
 
         } catch {
@@ -97,7 +106,6 @@ struct ContentView: View {
             print("Failed")
         }
         
-        print("Words are", words)
         return words
     }
     
@@ -179,10 +187,8 @@ struct ContentView: View {
     
     func handleNotification(entry: Entry) {
         if checkDb(entry) {
-            print("Word in DB. Do nothing.")
             return
         }
-        print("Adding word to DB.")
         
         let text = constructNotificationText(entry)
         addWordToDb(entry)
