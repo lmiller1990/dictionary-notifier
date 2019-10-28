@@ -28,6 +28,7 @@ struct OptionsView: View {
         }
        
         handleUpdate(updatedNotificationIntervals)
+        self.dismissFlag.toggle()
     }
     
     func handleAppear() {
@@ -43,16 +44,14 @@ struct OptionsView: View {
     
     var body: some View {
         VStack {
-            Text("Notification: \(self.selection1). When: \(self.notificationDurations[self.selection1]) \(self.notificationUnits[self.selection1])")
+            Text("Customize the interval at which you receive notifications of words you looked up.")
             Picker(selection: self.$selection1, label: Text("Notification")) {
                 ForEach(1..<4) {
                     Text("\($0)").tag($0)
                 }
-            }
-            .pickerStyle(SegmentedPickerStyle())
-
-            GeometryReader { geometry in
+            }.pickerStyle(SegmentedPickerStyle())
             
+            GeometryReader { geometry in
                 HStack(spacing: 0 as CGFloat) {
                     Picker(selection: self.$notificationDurations[self.selection1], label: Text("Duration")) {
                         ForEach(0..<25) {
@@ -60,8 +59,7 @@ struct OptionsView: View {
                         }
                     }
                     .frame(maxWidth: (geometry.size.width / 2) as CGFloat)
-                         .clipped()
-                        .border(Color.red)
+                    .clipped()
                     
                     Picker(selection: self.$notificationUnits[self.selection1], label: Text("Time")) {
                         ForEach(["hours", "days"], id: \.self) {
@@ -69,15 +67,24 @@ struct OptionsView: View {
                         }
                     }
                     .frame(maxWidth: (geometry.size.width / 2) as CGFloat)
-                        .clipped()
-                        .border(Color.blue)
+                    .clipped()
                 }
             }
             
+            
             Button(action: self.saveNotificationFrequency) {
                 Text("Save")
+                    .foregroundColor(.red)
+                    .font(.subheadline)
+                    .padding()
+                    .padding(.leading, 50)
+                    .padding(.trailing, 50)
+                    .border(Color.red, width: 2)
+                    
+                    
             }
         }
+        .padding(50)
         .onAppear {
             self.handleAppear()
         }
