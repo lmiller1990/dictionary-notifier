@@ -7,7 +7,7 @@ struct OptionsView: View {
     var frequenciesInHours: [Int]
     var handleUpdate: (_ notificationIntervals: [NotificationInterval]) -> Void
     
-    @State private var notificationDurations: [Int] = [3, 12, 24]
+    @State private var notificationDurations: [Int] = [3, 12 , 24]
     @State private var notificationUnits: [String] = ["hours", "hours", "hours"]
 
     @State var selection1: Int = 1
