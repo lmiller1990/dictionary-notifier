@@ -31,6 +31,7 @@ struct ContentView: View {
             fetchFrequency.predicate = NSPredicate(format: "number == %@", NSNumber(value: number + 1))
             
             do {
+                print("Saving notification with \(notificationIntervals[number].duration) h")
                 let result = try managedContext.fetch(fetchFrequency) as! [NotificationFrequencies]
                 result.first?.setValue(notificationIntervals[number].duration, forKey: "hours")
             } catch {
@@ -91,7 +92,6 @@ struct ContentView: View {
     }
     
     func getAllDbWords() -> [String] {
-        self.deleteAll()
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return [""]
         }
@@ -120,6 +120,10 @@ struct ContentView: View {
     
     func loadCurrentDbWords() {
         self.dbWords = self.getAllDbWords()
+        print("== Words in DB ==")
+        for word in self.dbWords {
+            print(word)
+        }
     }
     
     func parseRawJishoResponse(response: RawJishoResponse) -> [Entry] {
@@ -261,7 +265,9 @@ struct ContentView: View {
             
                                    
                 SearchBarCancel(text: $word, onSearch: handleSearch)
-            }.padding(.leading)
+            }
+            .padding(.leading)
+            .padding(.trailing)
             
             // Button(action: self.deleteAll) {
             //    Text("Delete all")
