@@ -154,7 +154,7 @@ struct ContentView: View {
     
     func getWord(_ entry:  Entry) -> String {
         if (entry.kanji != nil) {
-            return entry.kanji! + (entry.kana)
+            return entry.kanji! + "(\(entry.kana))"
         }
         
         return entry.kana
