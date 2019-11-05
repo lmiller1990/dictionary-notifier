@@ -262,17 +262,12 @@ struct ContentView: View {
                             handleUpdate: self.handleUpdateNotifications
                         )
                     }
-            
                                    
                 SearchBarCancel(text: $word, onSearch: handleSearch)
             }
             .padding(.leading)
             .padding(.trailing)
-            
-            // Button(action: self.deleteAll) {
-            //    Text("Delete all")
-            // }
-            
+
             HStack {
                 Text(definition)
             }

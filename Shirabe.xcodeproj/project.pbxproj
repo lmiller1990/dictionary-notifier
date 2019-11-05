@@ -39,6 +39,16 @@
 		73EC397523572A90002CA378 /* NotificationDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 73EC397323572A90002CA378 /* NotificationDemo.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		73EE7D6423714F7C00FFF9B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 732B2C70234B6579000C0054 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 732B2C77234B6579000C0054;
+			remoteInfo = Shirabe;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		732B2C78234B6579000C0054 /* Shirabe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shirabe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		732B2C7B234B6579000C0054 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,10 +82,18 @@
 		7361F9B823658DD400A9B593 /* NotificationInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationInterval.swift; sourceTree = "<group>"; };
 		73BC91872355EF3700D300C9 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
 		73EC397423572A90002CA378 /* NotificationData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NotificationData.xcdatamodel; sourceTree = "<group>"; };
+		73EE7D5F23714F7C00FFF9B0 /* ShirabeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShirabeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		732B2C75234B6579000C0054 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73EE7D5C23714F7C00FFF9B0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -100,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				732B2C78234B6579000C0054 /* Shirabe.app */,
+				73EE7D5F23714F7C00FFF9B0 /* ShirabeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -216,6 +235,24 @@
 			productReference = 732B2C78234B6579000C0054 /* Shirabe.app */;
 			productType = "com.apple.product-type.application";
 		};
+		73EE7D5E23714F7C00FFF9B0 /* ShirabeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73EE7D6823714F7C00FFF9B0 /* Build configuration list for PBXNativeTarget "ShirabeTests" */;
+			buildPhases = (
+				73EE7D5B23714F7C00FFF9B0 /* Sources */,
+				73EE7D5C23714F7C00FFF9B0 /* Frameworks */,
+				73EE7D5D23714F7C00FFF9B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				73EE7D6523714F7C00FFF9B0 /* PBXTargetDependency */,
+			);
+			name = ShirabeTests;
+			productName = ShirabeTests;
+			productReference = 73EE7D5F23714F7C00FFF9B0 /* ShirabeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -228,6 +265,10 @@
 				TargetAttributes = {
 					732B2C77234B6579000C0054 = {
 						CreatedOnToolsVersion = 11.0;
+					};
+					73EE7D5E23714F7C00FFF9B0 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 732B2C77234B6579000C0054;
 					};
 				};
 			};
@@ -245,6 +286,7 @@
 			projectRoot = "";
 			targets = (
 				732B2C77234B6579000C0054 /* Shirabe */,
+				73EE7D5E23714F7C00FFF9B0 /* ShirabeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -274,6 +316,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		73EE7D5D23714F7C00FFF9B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -297,7 +346,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		73EE7D5B23714F7C00FFF9B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		73EE7D6523714F7C00FFF9B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 732B2C77234B6579000C0054 /* Shirabe */;
+			targetProxy = 73EE7D6423714F7C00FFF9B0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		732B2C89234B657C000C0054 /* LaunchScreen.storyboard */ = {
@@ -469,6 +533,46 @@
 			};
 			name = Release;
 		};
+		73EE7D6623714F7C00FFF9B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4A3L443KFQ;
+				INFOPLIST_FILE = ShirabeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Lachlan.ShirabeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shirabe.app/Shirabe";
+			};
+			name = Debug;
+		};
+		73EE7D6723714F7C00FFF9B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4A3L443KFQ;
+				INFOPLIST_FILE = ShirabeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Lachlan.ShirabeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shirabe.app/Shirabe";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -486,6 +590,15 @@
 			buildConfigurations = (
 				732B2C90234B657C000C0054 /* Debug */,
 				732B2C91234B657C000C0054 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		73EE7D6823714F7C00FFF9B0 /* Build configuration list for PBXNativeTarget "ShirabeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73EE7D6623714F7C00FFF9B0 /* Debug */,
+				73EE7D6723714F7C00FFF9B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

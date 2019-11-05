@@ -49,8 +49,11 @@ class LocalNotificationManager {
             let content = UNMutableNotificationContent()
             content.title = notification.title
              for i in notificationFrequencies {
+                // make the notifications a bit more random to space them out.
+                // 300.. 21600 is 5 min -> 6 hours
+                let randomHours = Double.random(in: 300...21600)
                 let id = UUID()
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: i, repeats: false)
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: i + randomHours, repeats: false)
                 let request = UNNotificationRequest(identifier: id.uuidString, content: content, trigger: trigger)
                 
                 UNUserNotificationCenter.current().add(request) { error in
