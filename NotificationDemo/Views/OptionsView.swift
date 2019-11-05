@@ -44,7 +44,7 @@ struct OptionsView: View {
     
     var body: some View {
         VStack {
-            Text("Customize the interval at which you receive notifications of words you looked up.")
+            Text("Customize the approximate interval at which you receive notifications of words you looked up.")
             Picker(selection: self.$selection1, label: Text("Notification")) {
                 ForEach(1..<4) {
                     Text("\($0)").tag($0)
@@ -88,5 +88,21 @@ struct OptionsView: View {
         .onAppear {
             self.handleAppear()
         }
+    }
+}
+
+func mock(_ notif: [NotificationInterval]) -> Void {
+    return
+}
+
+struct OptionsView_Previews: PreviewProvider {
+    @Binding var dismissFlag: Bool
+    
+    static var previews: some View {
+        OptionsView(
+            dismissFlag: .constant(false),
+            frequenciesInHours: [1,2,3],
+            handleUpdate: mock
+        )
     }
 }
