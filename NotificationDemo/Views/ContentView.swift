@@ -127,7 +127,6 @@ struct ContentView: View {
     }
     
     func parseRawJishoResponse(response: RawJishoResponse) -> [Entry] {
-        
         return response.data.reduce([]) {(acc: [Entry], curr: RawJishoResponse.Entry) -> [Entry] in
             if curr.japanese.count > 0 && curr.japanese[0].reading != nil && curr.senses.count > 0 {
                 return acc + [
@@ -155,7 +154,7 @@ struct ContentView: View {
     
     func getWord(_ entry:  Entry) -> String {
         if (entry.kanji != nil) {
-            return entry.kanji!
+            return entry.kanji! + (entry.kana)
         }
         
         return entry.kana
