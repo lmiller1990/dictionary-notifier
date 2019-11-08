@@ -229,6 +229,13 @@ struct ContentView: View {
     }
     
     func handleAppear() {
+        do {
+            let strings: [String] = try FileUtils.readFile(filename: "examples.txt")
+            print(strings)
+        } catch {
+            // ...
+        }
+        
         self.frequenciesInHours = getNotificationFrequenciesInHours()
         loadCurrentDbWords()
     }

@@ -35,6 +35,8 @@
 		734F571A235C4B400082C715 /* 29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 734F5718235C4B3F0082C715 /* 29x29.png */; };
 		734F571C235C4CDA0082C715 /* 1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 734F571B235C4CDA0082C715 /* 1024x1024.png */; };
 		7361F9B923658DD400A9B593 /* NotificationInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361F9B823658DD400A9B593 /* NotificationInterval.swift */; };
+		73940A502375919E00ABD2F1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73940A4F2375919E00ABD2F1 /* Utils.swift */; };
+		73940A5223759FEC00ABD2F1 /* examples.txt in Resources */ = {isa = PBXBuildFile; fileRef = 73940A5123759FEC00ABD2F1 /* examples.txt */; };
 		73BC91882355EF3700D300C9 /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC91872355EF3700D300C9 /* NSManagedObjectContext.swift */; };
 		73EC397523572A90002CA378 /* NotificationDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 73EC397323572A90002CA378 /* NotificationDemo.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -80,6 +82,8 @@
 		734F5718235C4B3F0082C715 /* 29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 29x29.png; sourceTree = "<group>"; };
 		734F571B235C4CDA0082C715 /* 1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024x1024.png; sourceTree = "<group>"; };
 		7361F9B823658DD400A9B593 /* NotificationInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationInterval.swift; sourceTree = "<group>"; };
+		73940A4F2375919E00ABD2F1 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		73940A5123759FEC00ABD2F1 /* examples.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = examples.txt; sourceTree = "<group>"; };
 		73BC91872355EF3700D300C9 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
 		73EC397423572A90002CA378 /* NotificationData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NotificationData.xcdatamodel; sourceTree = "<group>"; };
 		73EE7D5F23714F7C00FFF9B0 /* ShirabeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShirabeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +130,8 @@
 		732B2C7A234B6579000C0054 /* NotificationDemo */ = {
 			isa = PBXGroup;
 			children = (
+				73940A532375A1BC00ABD2F1 /* Resources */,
+				73940A4D2375916D00ABD2F1 /* Utils */,
 				734F5702235C49EE0082C715 /* Icons */,
 				73499A9B2355F51D0069B451 /* ViewModels */,
 				73BC91862355EF2300D300C9 /* Extensions */,
@@ -207,6 +213,22 @@
 			path = NotificationDemo/MiscAssets/Icons;
 			sourceTree = SOURCE_ROOT;
 		};
+		73940A4D2375916D00ABD2F1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				73940A4F2375919E00ABD2F1 /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		73940A532375A1BC00ABD2F1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				73940A5123759FEC00ABD2F1 /* examples.txt */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		73BC91862355EF2300D300C9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +281,9 @@
 		732B2C70234B6579000C0054 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Lachlan Miller";
@@ -297,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				732B2C8B234B657C000C0054 /* LaunchScreen.storyboard in Resources */,
+				73940A5223759FEC00ABD2F1 /* examples.txt in Resources */,
 				734F5713235C49EE0082C715 /* 60x60.png in Resources */,
 				734F571C235C4CDA0082C715 /* 1024x1024.png in Resources */,
 				734F5716235C49EE0082C715 /* 80x80.png in Resources */,
@@ -333,6 +359,7 @@
 				732B2CA023518F89000C0054 /* Entry.swift in Sources */,
 				732B2C97235073E8000C0054 /* SearchBarCancel.swift in Sources */,
 				732B2C7C234B6579000C0054 /* AppDelegate.swift in Sources */,
+				73940A502375919E00ABD2F1 /* Utils.swift in Sources */,
 				7361F9B923658DD400A9B593 /* NotificationInterval.swift in Sources */,
 				734514872364132100399FC5 /* OptionsView.swift in Sources */,
 				732B2C93234B68D1000C0054 /* LocalNotificationManager.swift in Sources */,
