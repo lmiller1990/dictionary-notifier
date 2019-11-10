@@ -1,11 +1,3 @@
-//
-//  ExampleSentenceView.swift
-//  Shirabe
-//
-//  Created by Lachlan Miller on 9/11/19.
-//  Copyright © 2019 Lachlan Miller. All rights reserved.
-//
-
 import SwiftUI
 
 struct Sentence {
