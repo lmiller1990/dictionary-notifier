@@ -1,29 +1,33 @@
 import Foundation
 
-enum GenericError : Error {
-    case unreachableCode
+
+class LineReader {
+    public let path: String
+    
+    fileprivate let file: UnsafeMutablePointer<FILE>!
+    
+    init?(path: String) {
+        self.path = path
+        file = fopen(path, "r")
+        guard file != nil else { return nil }
+    }
+    
+    public var nextLine: String? {
+        var line:UnsafeMutablePointer<CChar>? = nil
+        var linecap:Int = 0
+        defer { free(line) }
+        return getline(&line, &linecap, file) > 0 ? String(cString: line!) : nil
+    }
+    
+    deinit {
+        fclose(file)
+    }
 }
 
-class FileUtils {
-    static func readFile(filename: String) throws -> [String] {
-        
-        let filePath = Bundle.main.resourcePath!
-        
-        let textContent = try! String(contentsOfFile: filePath + "/\(filename)", encoding: String.Encoding.utf8)
-    
-        return textContent.split(separator: "\n").map { String($0) }
-//        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-//            let fileURL = dir.appendingPathComponent(filename)
-//            do {
-//                let text = try String(contentsOf: fileURL, encoding: .utf8)
-//
-//                return text.split(separator: "\n").map { String($0) }
-//            }
-//            catch {
-//                print("Some error here...\(error)")
-//            }
-//        }
-//
-//        throw GenericError.unreachableCode
+extension LineReader: Sequence {
+    public func  makeIterator() -> AnyIterator<String> {
+        return AnyIterator<String> {
+            return self.nextLine
+        }
     }
 }

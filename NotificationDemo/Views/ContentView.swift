@@ -229,13 +229,6 @@ struct ContentView: View {
     }
     
     func handleAppear() {
-        do {
-            let strings: [String] = try FileUtils.readFile(filename: "examples.txt")
-            print(strings)
-        } catch {
-            // ...
-        }
-        
         self.frequenciesInHours = getNotificationFrequenciesInHours()
         loadCurrentDbWords()
     }
@@ -257,10 +250,11 @@ struct ContentView: View {
     @State var shown = false
     
     var body: some View {
+        
         VStack {
             HStack {
                 Image(systemName: "gear")
-                    .onTapGesture { self.shown.toggle() }
+                    
                     .sheet(isPresented: $shown) { () -> OptionsView in
                         return OptionsView(
                             dismissFlag: self.$shown,
@@ -268,12 +262,12 @@ struct ContentView: View {
                             handleUpdate: self.handleUpdateNotifications
                         )
                     }
-                                   
+                
                 SearchBarCancel(text: $word, onSearch: handleSearch)
             }
             .padding(.leading)
             .padding(.trailing)
-
+            
             HStack {
                 Text(definition)
             }
@@ -288,6 +282,7 @@ struct ContentView: View {
         }.onAppear {
             self.handleAppear()
         }
+        
     }
 }
 
