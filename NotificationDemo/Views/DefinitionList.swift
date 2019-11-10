@@ -72,26 +72,31 @@ struct DefinitionList : View {
             }
             
             var i: Int = 0
-            var arr: [String] = []
+            var arr: [Sentence] = []
+            var foundJapanese: [String] = []
+            var foundEnglish: [String] = []
+
             for line in reader {
                 if line.contains(element) {
-                    arr.append(line)
-                    i += 1
+                    let split = line.split(separator: "|")
+                    
+                    if split.count == 2 {
+                        let english = String(split[0])
+                        let japanese = String(split[1])
+                        
+                        if !foundEnglish.contains(english) && !foundJapanese.contains(japanese) {
+                            i += 1
+                            foundJapanese.append(japanese)
+                            foundEnglish.append(english)
+                            arr.append(Sentence(id: i, english: english, japanese: japanese))
+                        }
+                    }
                 }
-                if i > 10 { break }
+                
+                if i > 15 { break }
             }
             
-            i = 0
-            let sentences = arr.reduce([]) {(acc: [Sentence], curr: String) -> [Sentence] in
-                i += 1
-                let split = curr.split(separator: "|")
-                if split.count == 2 {
-                    return acc + [Sentence(id: i, english: String(split[0]), japanese: String(split[1]))]
-                }
-                return acc
-            }
-            
-            self.sentences = sentences
+            self.sentences = arr
             self.shown.toggle()
         } catch {
             // ...
