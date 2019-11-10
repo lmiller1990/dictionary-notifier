@@ -105,7 +105,8 @@ struct DefinitionList : View {
                 onRequestNotification: self.onRequestNotification,
                 dbWords: self.dbWords
             )
-                .onTapGesture { self.loadExampleSentences(entry: self.dictEntries[0]) }
+                .contentShape(Rectangle())
+                .onTapGesture { self.loadExampleSentences(entry: entry) }
                 .sheet(isPresented: self.$shown) { () -> ExampleSentenceView in
                     return ExampleSentenceView(
                         dismissFlag: self.$shown,
@@ -113,7 +114,6 @@ struct DefinitionList : View {
                     )
             }
         }
-        
     }
 }
 
