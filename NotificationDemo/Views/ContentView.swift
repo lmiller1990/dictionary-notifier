@@ -254,7 +254,7 @@ struct ContentView: View {
         VStack {
             HStack {
                 Image(systemName: "gear")
-                    
+                    .onTapGesture { self.shown.toggle() }
                     .sheet(isPresented: $shown) { () -> OptionsView in
                         return OptionsView(
                             dismissFlag: self.$shown,
