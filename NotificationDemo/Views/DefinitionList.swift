@@ -42,7 +42,7 @@ struct DefinitionEntry : View {
                 
                 DefintionEnglish(meaning: entry.meaning)
             }
-
+            
             Spacer()
             
             HStack {
@@ -58,6 +58,45 @@ struct DefinitionList : View {
     var dictEntries: [Entry]
     var onRequestNotification: (_ word: Entry) -> Void
     var dbWords: [String]
+    @State var shown = false
+    @State var sentences: [Sentence] = []
+    
+    func loadExampleSentences(entry: Entry) {
+        do {
+            let element: String = entry.kanji != nil ? entry.kanji! : entry.kana
+            
+            let path = "\(Bundle.main.resourcePath!)/examples.txt"
+            guard let reader = LineReader(path: path) else {
+                print("Could not open file...")
+                throw "Error..."
+            }
+            
+            var i: Int = 0
+            var arr: [String] = []
+            for line in reader {
+                if line.contains(element) {
+                    arr.append(line)
+                    i += 1
+                }
+                if i > 10 { break }
+            }
+            
+            i = 0
+            let sentences = arr.reduce([]) {(acc: [Sentence], curr: String) -> [Sentence] in
+                i += 1
+                let split = curr.split(separator: "|")
+                if split.count == 2 {
+                    return acc + [Sentence(id: i, english: String(split[0]), japanese: String(split[1]))]
+                }
+                return acc
+            }
+            
+            self.sentences = sentences
+            self.shown.toggle()
+        } catch {
+            // ...
+        }
+    }
     
     var body: some View {
         List(dictEntries, id: \.kana) { entry in
@@ -66,7 +105,15 @@ struct DefinitionList : View {
                 onRequestNotification: self.onRequestNotification,
                 dbWords: self.dbWords
             )
+                .onTapGesture { self.loadExampleSentences(entry: self.dictEntries[0]) }
+                .sheet(isPresented: self.$shown) { () -> ExampleSentenceView in
+                    return ExampleSentenceView(
+                        dismissFlag: self.$shown,
+                        sentences: self.sentences
+                    )
+            }
         }
+        
     }
 }
 
@@ -83,9 +130,9 @@ let entries: [Entry] = [
     ),
     
     Entry(
-           kana: "イエメンオオトカゲ",
-           meaning: Entry.Meaning(definitions: ["Yemen monitor (Varanus yemenensis, species of carnivorous monitor lizard found at the base of the Tihama mountains along the western coast of Yemen)"], partsOfSpeech: ["Noun", "Suru verb"])
-       )
+        kana: "イエメンオオトカゲ",
+        meaning: Entry.Meaning(definitions: ["Yemen monitor (Varanus yemenensis, species of carnivorous monitor lizard found at the base of the Tihama mountains along the western coast of Yemen)"], partsOfSpeech: ["Noun", "Suru verb"])
+    )
 ]
 
 func mock(_ entry: Entry) -> Void {
