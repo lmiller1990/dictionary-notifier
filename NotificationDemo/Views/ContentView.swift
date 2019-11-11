@@ -250,6 +250,7 @@ struct ContentView: View {
     @State var shown = false
     
     var body: some View {
+        
         VStack {
             HStack {
                 Image(systemName: "gear")
@@ -261,12 +262,12 @@ struct ContentView: View {
                             handleUpdate: self.handleUpdateNotifications
                         )
                     }
-                                   
+                
                 SearchBarCancel(text: $word, onSearch: handleSearch)
             }
             .padding(.leading)
             .padding(.trailing)
-
+            
             HStack {
                 Text(definition)
             }
@@ -281,6 +282,7 @@ struct ContentView: View {
         }.onAppear {
             self.handleAppear()
         }
+        
     }
 }
 
