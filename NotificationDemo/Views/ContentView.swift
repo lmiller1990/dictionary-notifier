@@ -103,8 +103,8 @@ struct ContentView: View {
             let result = try managedContext.fetch(fetchRequest)
             for data in result as! [NSManagedObject] {
                 let created = data.value(forKey: "created") as! Date
-                // 432000 is 5 days in seconds
-                if created.addingTimeInterval(432000) < Date() {
+                // 12h in seconds
+                if created.addingTimeInterval(43200) < Date() {
                     // delete - it is too old!
                     managedContext.delete(data)
                 } else {
