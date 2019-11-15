@@ -53,6 +53,7 @@ struct ContentView: View {
         do {
             let result = try managedContext.fetch(fetchRequest)
             if result.count == 0 {
+                print("Creating Default frequencies")
                 for (index, hours) in [6, 18, 48].enumerated() {
                     // create the frequencies
                     let notificationEntity = NSEntityDescription.entity(forEntityName: "NotificationFrequencies", in: managedContext)!
@@ -70,7 +71,8 @@ struct ContentView: View {
             for number in 1..<4 {
                 let fetchFrequency = NSFetchRequest<NSFetchRequestResult>(entityName: "NotificationFrequencies")
                 fetchFrequency.predicate = NSPredicate(format: "number == %@", NSNumber(value: number))
-                
+                print("Loading Frequencies")
+
                 do {
                     let result = try managedContext.fetch(fetchFrequency) as! [NotificationFrequencies]
                     if result.count != 1 {
@@ -230,6 +232,8 @@ struct ContentView: View {
     
     func handleAppear() {
         self.frequenciesInHours = getNotificationFrequenciesInHours()
+        self.manager.setNotificationFrequencies(frequencies: self.getNotificationFrequeniesInSeconds())
+        print("Frequencies in hours", self.frequenciesInHours)
         loadCurrentDbWords()
     }
     
