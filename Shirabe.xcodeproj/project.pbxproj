@@ -461,7 +461,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3.1;
+				CURRENT_PROJECT_VERSION = 3.2;
 				DEVELOPMENT_ASSET_PATHS = "\"NotificationDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = KMK5HDNTB6;
 				ENABLE_PREVIEWS = YES;
@@ -470,7 +470,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.31;
+				MARKETING_VERSION = 0.32;
 				PRODUCT_BUNDLE_IDENTIFIER = app.shirabe;
 				PRODUCT_NAME = Shirabe;
 				SWIFT_VERSION = 5.0;
@@ -483,7 +483,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3.1;
+				CURRENT_PROJECT_VERSION = 3.2;
 				DEVELOPMENT_ASSET_PATHS = "\"NotificationDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = KMK5HDNTB6;
 				ENABLE_PREVIEWS = YES;
@@ -492,7 +492,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.31;
+				MARKETING_VERSION = 0.32;
 				PRODUCT_BUNDLE_IDENTIFIER = app.shirabe;
 				PRODUCT_NAME = Shirabe;
 				SWIFT_VERSION = 5.0;
