@@ -11,10 +11,10 @@ import SwiftUI
 import UserNotifications
 
 class NotificationSettings: ObservableObject {
-    @Published var word: String
+    @Published var wordFromNotification: String
     
     init(word: String) {
-        self.word = word
+        self.wordFromNotification = word
     }
 }
 
@@ -23,8 +23,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCente
     var window: UIWindow?
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-
-        
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
@@ -33,8 +31,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCente
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = response.targetScene as? UIWindowScene {
+            var word: String = ""
+            let title = response.notification.request.content.title
+            if title != "" {
+                if title.contains("(") {
+                    // format of KANJI (KANA) - ENG
+                    word = title.split(separator: "(")[0].trimmingCharacters(in: .whitespacesAndNewlines)
+                } else if title.contains("-") {
+                    // format of KANA - ENG
+                    word = title.split(separator: "-")[0].trimmingCharacters(in: .whitespacesAndNewlines)
+                }
+            }
+            
             let window = UIWindow(windowScene: windowScene)
-            let notificationSettings = NotificationSettings(word: response.notification.request.content.title)
+            let notificationSettings = NotificationSettings(word: word)
             window.rootViewController = UIHostingController(rootView: contentView.environmentObject(notificationSettings))
             self.window = window
             window.makeKeyAndVisible()
@@ -86,7 +96,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCente
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
-        print("sceneWillEnterForeground")
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

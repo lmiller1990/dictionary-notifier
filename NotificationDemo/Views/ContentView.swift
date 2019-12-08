@@ -5,7 +5,6 @@ import CoreData
 
 struct ContentView: View {
     @EnvironmentObject var settings: NotificationSettings
-    @State var wordFromNotification: String = ""
     @State var word: String = ""
     @State var definition: String = ""
     @State var dictEntries: [Entry] = []
@@ -232,13 +231,22 @@ struct ContentView: View {
     }
     
     func handleAppear() {
-        self.manager.testNotification()
+        // self.manager.testNotification()
         self.frequenciesInHours = getNotificationFrequenciesInHours()
         self.manager.setNotificationFrequencies(frequencies: self.getNotificationFrequeniesInSeconds())
         print("Frequencies in hours", self.frequenciesInHours)
         loadCurrentDbWords()
-        print("handleAppear() called with wordFromNotification: \(self.$settings.word)")
-        // print("Settings: \(self.settings.word) ")
+        print("handleAppear() called with wordFromNotification: \(self.$settings.wordFromNotification)")
+        
+        print("Settings: \(self.settings.wordFromNotification) ")
+
+        if self.settings.wordFromNotification != "" {
+            self.word = self.settings.wordFromNotification
+            self.handleSearch()
+        } else {
+            print("no word from notification")
+        }
+       
     }
     
     func deleteAll() {
@@ -298,8 +306,8 @@ let dictEntries: [Entry] = [
     Entry(kana: "じしょ", kanji: "辞書", meaning: Entry.Meaning(definitions: ["Dictionary"], partsOfSpeech: ["Noun"]))
 ]
 
-//struct ContentView_Previews: PreviewProvider  {
-//    static var previews: some View {
-//        ContentView(dictEntries: dictEntries)
-//    }
-//}
+struct ContentView_Previews: PreviewProvider  {
+    static var previews: some View {
+        ContentView(dictEntries: dictEntries)
+    }
+}
