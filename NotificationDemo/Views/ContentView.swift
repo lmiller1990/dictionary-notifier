@@ -4,6 +4,8 @@ import CoreData
 
 
 struct ContentView: View {
+    @EnvironmentObject var settings: NotificationSettings
+    @State var wordFromNotification: String = ""
     @State var word: String = ""
     @State var definition: String = ""
     @State var dictEntries: [Entry] = []
@@ -17,7 +19,6 @@ struct ContentView: View {
         return self.getNotificationFrequenciesInHours().map { hours in
             return Double(hours * 60 * 60)
         }
-            
     }
     
     func handleUpdateNotifications(_ notificationIntervals: [NotificationInterval]) -> Void {
@@ -231,10 +232,13 @@ struct ContentView: View {
     }
     
     func handleAppear() {
+        self.manager.testNotification()
         self.frequenciesInHours = getNotificationFrequenciesInHours()
         self.manager.setNotificationFrequencies(frequencies: self.getNotificationFrequeniesInSeconds())
         print("Frequencies in hours", self.frequenciesInHours)
         loadCurrentDbWords()
+        print("handleAppear() called with wordFromNotification: \(self.$settings.word)")
+        // print("Settings: \(self.settings.word) ")
     }
     
     func deleteAll() {
@@ -294,8 +298,8 @@ let dictEntries: [Entry] = [
     Entry(kana: "じしょ", kanji: "辞書", meaning: Entry.Meaning(definitions: ["Dictionary"], partsOfSpeech: ["Noun"]))
 ]
 
-struct ContentView_Previews: PreviewProvider  {
-    static var previews: some View {
-        ContentView(dictEntries: dictEntries)
-    }
-}
+//struct ContentView_Previews: PreviewProvider  {
+//    static var previews: some View {
+//        ContentView(dictEntries: dictEntries)
+//    }
+//}

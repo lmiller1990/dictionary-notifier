@@ -34,6 +34,30 @@ class LocalNotificationManager {
         notifications.append(Notification(title: title))
     }
     
+    func testNotification() {
+        UNUserNotificationCenter
+        .current()
+        .requestAuthorization(options: [.alert, .badge, .alert]) { granted, error in
+            if granted == true && error == nil {
+                print("Got Permission")
+            } else {
+                // ...
+            }
+        }
+        let content = UNMutableNotificationContent()
+        content.title = "Test Notification"
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { error in
+            if error != nil {
+                print("Error scheduling test notification")
+            }
+            
+            guard error == nil else { return }
+            print("Scheduled test notification")
+        }
+    }
+    
     func schedule() -> Void {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             switch settings.authorizationStatus {
