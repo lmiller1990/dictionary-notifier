@@ -1,3 +1,9 @@
+## Shirabe - Spaced Repetition x Japanese Dictionary
+
+Available on the App Store - https://shirabe.app.
+
+## About
+
 「しらべ」は英語を繰り返し学ぶためのアプリです。
 Shirabe is spaced repetition combined with a Japanese Dictionary. Think a dictionary crossed with Anki on steroids.
 
@@ -20,9 +26,6 @@ CONSTANT UPDATES
 Shirabe is constantly updated and improved. A human will personally reply to any feature request, bug report, or question - just reach out at contact@shirabe.app.
 
 毎月新しいバージョンがリリースされます。欲しい機能、質問、問題等があれば、contact@shirabe.appまでお問い合わせお願いします。担当より確認後返信します。
-
-
-https://apps.apple.com/us/app/japanese-anki-dictionary/id1484450424?ls=1
 
 RESPECTS YOU AND YOUR PRIVACY
 プライバシーを保護、尊重します。 
