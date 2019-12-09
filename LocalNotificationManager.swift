@@ -45,8 +45,8 @@ class LocalNotificationManager {
             }
         }
         let content = UNMutableNotificationContent()
-        content.title = "検定" //  (けんてい) - blah blah"
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        content.title = "テストパイロット - Test pilot" //  (けんてい) - blah blah"
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request) { error in
             if error != nil {
