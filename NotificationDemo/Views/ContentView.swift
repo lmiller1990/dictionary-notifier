@@ -236,17 +236,13 @@ struct ContentView: View {
         self.manager.setNotificationFrequencies(frequencies: self.getNotificationFrequeniesInSeconds())
         print("Frequencies in hours", self.frequenciesInHours)
         loadCurrentDbWords()
-        print("handleAppear() called with wordFromNotification: \(self.$settings.wordFromNotification)")
         
-        print("Settings: \(self.settings.wordFromNotification) ")
-
         if self.settings.wordFromNotification != "" {
             self.word = self.settings.wordFromNotification
             self.handleSearch()
         } else {
             print("no word from notification")
         }
-       
     }
     
     func deleteAll() {
