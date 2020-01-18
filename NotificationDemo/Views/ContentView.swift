@@ -10,6 +10,8 @@ struct ContentView: View {
     @State var dictEntries: [Entry] = []
     @State var dbWords: [String] = []
     @State var frequenciesInHours: [Int] = []
+    @State private var loading = false
+    @State private var errorMessage = ""
     
     let endpoint: String = "https://jisho.org/api/v1/search/words"
     var manager = LocalNotificationManager()
@@ -212,6 +214,8 @@ struct ContentView: View {
     
     func handleSearch() {
         print("Searching for \(self.word.lowercased())")
+        self.errorMessage = ""
+        self.loading = true
         
         var components = URLComponents(string: endpoint)!
         components.queryItems = [
@@ -221,9 +225,15 @@ struct ContentView: View {
             if let data = data {
                 do {
                     let response = try JSONDecoder().decode(RawJishoResponse.self, from: data)
-                    self.dictEntries = self.parseRawJishoResponse(response: response)
+                    let entries = self.parseRawJishoResponse(response: response)
+                    self.dictEntries = entries
+                    self.loading = false
+                    if entries.count == 0 {
+                        self.errorMessage = "No definition found for \(self.word)."
+                    }
                 } catch {
                     print("error", error, data)
+                    self.loading = false
                 }
             }
         }
@@ -280,17 +290,19 @@ struct ContentView: View {
             .padding(.leading)
             .padding(.trailing)
             
-            HStack {
-                Text(definition)
+            if self.loading {
+                ActivityIndicator(shouldAnimate: self.$loading).padding(.top)
             }
             
+            if errorMessage != "" {
+                Text("\(errorMessage)")
+            }
+        
             DefinitionList(
                 dictEntries: dictEntries,
                 onRequestNotification: handleNotification,
                 dbWords: dbWords
             )
-            
-            // Spacer()
         }.onAppear {
             self.handleAppear()
         }

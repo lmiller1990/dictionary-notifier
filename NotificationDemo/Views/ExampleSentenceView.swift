@@ -24,6 +24,9 @@ struct ExampleSentenceView : View {
         Group {
             Text("Examples").font(.subheadline).padding(.top)
             
+            if sentences.count == 0 {
+                Text("No example sentences found.").font(.subheadline).padding(.top)
+            }
             List(self.sentences, id: \.id) { sentence in
                 ExampleSentence(sentence: sentence)
             }
